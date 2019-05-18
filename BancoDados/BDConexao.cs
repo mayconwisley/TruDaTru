@@ -7,7 +7,7 @@ namespace BancoDados
     public class BDConexao
     {
         protected FbConnection fbConnection;
-        private string strConexao = @"DataBase=|DataDirectory|/Banco/trudatru.fdb;username=sysdba;password=masterkey;dialect=3";
+        private string strConexao = @"User=sysdba;Password=masterkey;DataBase=C:\Programação\TruDaTru\TruDaTru\bin\x86\Debug\Banco\TRUDATRU.FDB.fdb;Dialect=3;ServerType=1";
 
         protected bool Conectar()
         {

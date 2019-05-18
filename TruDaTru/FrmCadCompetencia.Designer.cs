@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MktCompetencia = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CbAtivo = new System.Windows.Forms.CheckBox();
@@ -36,6 +37,9 @@
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgvListaCompetencia = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaCompetencia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +70,7 @@
             this.CbAtivo.TabIndex = 2;
             this.CbAtivo.Text = "Ativo";
             this.CbAtivo.UseVisualStyleBackColor = true;
+            this.CbAtivo.CheckedChanged += new System.EventHandler(this.CbAtivo_CheckedChanged);
             // 
             // BtnGravar
             // 
@@ -75,6 +80,7 @@
             this.BtnGravar.TabIndex = 3;
             this.BtnGravar.Text = "&Gravar";
             this.BtnGravar.UseVisualStyleBackColor = true;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
             // BtnAlterar
             // 
@@ -84,6 +90,7 @@
             this.BtnAlterar.TabIndex = 3;
             this.BtnAlterar.Text = "&Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // BtnExcluir
             // 
@@ -93,14 +100,22 @@
             this.BtnExcluir.TabIndex = 3;
             this.BtnExcluir.Text = "&Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // DgvListaCompetencia
             // 
+            this.DgvListaCompetencia.AllowUserToAddRows = false;
+            this.DgvListaCompetencia.AllowUserToDeleteRows = false;
             this.DgvListaCompetencia.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DgvListaCompetencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvListaCompetencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaCompetencia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Data_Competencia,
+            this.Ativo});
             this.DgvListaCompetencia.Location = new System.Drawing.Point(12, 104);
             this.DgvListaCompetencia.Name = "DgvListaCompetencia";
+            this.DgvListaCompetencia.ReadOnly = true;
             this.DgvListaCompetencia.Size = new System.Drawing.Size(237, 164);
             this.DgvListaCompetencia.TabIndex = 4;
             // 
@@ -112,6 +127,31 @@
             this.label2.Size = new System.Drawing.Size(113, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Lista de competências";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Data_Competencia
+            // 
+            this.Data_Competencia.DataPropertyName = "Data_Competencia";
+            dataGridViewCellStyle1.Format = "MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Data_Competencia.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Data_Competencia.HeaderText = "Competencia";
+            this.Data_Competencia.Name = "Data_Competencia";
+            this.Data_Competencia.ReadOnly = true;
+            // 
+            // Ativo
+            // 
+            this.Ativo.DataPropertyName = "Ativo";
+            this.Ativo.HeaderText = "Ativo";
+            this.Ativo.Name = "Ativo";
+            this.Ativo.ReadOnly = true;
             // 
             // FrmCadCompetencia
             // 
@@ -134,6 +174,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Competência";
+            this.Load += new System.EventHandler(this.FrmCadCompetencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaCompetencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -150,5 +191,8 @@
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.DataGridView DgvListaCompetencia;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Competencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ativo;
     }
 }

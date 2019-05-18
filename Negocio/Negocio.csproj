@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,16 +54,21 @@
     <Compile Include="Competencia\NegCompConsulta.cs" />
     <Compile Include="Competencia\NegCompExcluir.cs" />
     <Compile Include="Competencia\NegCompInserir.cs" />
+    <Compile Include="Estoque\NegEstAtualizar.cs" />
+    <Compile Include="Estoque\NegEstConsulta.cs" />
+    <Compile Include="Estoque\NegEstExcluir.cs" />
+    <Compile Include="Estoque\NegEstInserir.cs" />
     <Compile Include="Marca\NegMarcAtualizar.cs" />
     <Compile Include="Marca\NegMarcConsulta.cs" />
     <Compile Include="Marca\NegMarcExcluir.cs" />
     <Compile Include="Marca\NegMarcInserir.cs" />
+    <Compile Include="Produto\NegProdAtualizar.cs" />
+    <Compile Include="Produto\NegProdConsulta.cs" />
+    <Compile Include="Produto\NegProdExcluir.cs" />
+    <Compile Include="Produto\NegProdInserir.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Estoque\" />
-    <Folder Include="Produto\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BancoDados\BancoDados.csproj">
       <Project>{70727d5f-579b-4b37-b6d1-cb57a1d887b3}</Project>

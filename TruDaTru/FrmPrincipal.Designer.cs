@@ -40,8 +40,8 @@
             this.MenuRelMarc = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRelProd = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRelEsto = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MenuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             this.MenuSair});
             this.MenuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.MenuPrincipal.Name = "MenuPrincipal";
-            this.MenuPrincipal.Size = new System.Drawing.Size(800, 24);
+            this.MenuPrincipal.Size = new System.Drawing.Size(1016, 24);
             this.MenuPrincipal.TabIndex = 1;
             this.MenuPrincipal.Text = "menuStrip1";
             // 
@@ -71,21 +71,21 @@
             // MenuCadComp
             // 
             this.MenuCadComp.Name = "MenuCadComp";
-            this.MenuCadComp.Size = new System.Drawing.Size(180, 22);
+            this.MenuCadComp.Size = new System.Drawing.Size(145, 22);
             this.MenuCadComp.Text = "Competência";
             this.MenuCadComp.Click += new System.EventHandler(this.MenuCadComp_Click);
             // 
             // MenuCadMarc
             // 
             this.MenuCadMarc.Name = "MenuCadMarc";
-            this.MenuCadMarc.Size = new System.Drawing.Size(180, 22);
+            this.MenuCadMarc.Size = new System.Drawing.Size(145, 22);
             this.MenuCadMarc.Text = "Marca";
             this.MenuCadMarc.Click += new System.EventHandler(this.MenuCadMarc_Click);
             // 
             // MenuCadProd
             // 
             this.MenuCadProd.Name = "MenuCadProd";
-            this.MenuCadProd.Size = new System.Drawing.Size(180, 22);
+            this.MenuCadProd.Size = new System.Drawing.Size(145, 22);
             this.MenuCadProd.Text = "Produto";
             this.MenuCadProd.Click += new System.EventHandler(this.MenuCadProd_Click);
             // 
@@ -101,7 +101,7 @@
             // MenuEstCada
             // 
             this.MenuEstCada.Name = "MenuEstCada";
-            this.MenuEstCada.Size = new System.Drawing.Size(180, 22);
+            this.MenuEstCada.Size = new System.Drawing.Size(121, 22);
             this.MenuEstCada.Text = "Cadastro";
             this.MenuEstCada.Click += new System.EventHandler(this.MenuEstCada_Click);
             // 
@@ -124,28 +124,20 @@
             // MenuRelMarc
             // 
             this.MenuRelMarc.Name = "MenuRelMarc";
-            this.MenuRelMarc.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelMarc.Size = new System.Drawing.Size(122, 22);
             this.MenuRelMarc.Text = "Marcas";
             // 
             // MenuRelProd
             // 
             this.MenuRelProd.Name = "MenuRelProd";
-            this.MenuRelProd.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelProd.Size = new System.Drawing.Size(122, 22);
             this.MenuRelProd.Text = "Produtos";
             // 
             // MenuRelEsto
             // 
             this.MenuRelEsto.Name = "MenuRelEsto";
-            this.MenuRelEsto.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelEsto.Size = new System.Drawing.Size(122, 22);
             this.MenuRelEsto.Text = "Estoque";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // MenuSair
             // 
@@ -154,11 +146,19 @@
             this.MenuSair.Text = "Sair";
             this.MenuSair.Click += new System.EventHandler(this.MenuSair_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1016, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1016, 561);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.MenuPrincipal);
             this.IsMdiContainer = true;

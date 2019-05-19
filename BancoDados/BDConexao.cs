@@ -6,8 +6,9 @@ namespace BancoDados
 {
     public class BDConexao
     {
+
         protected FbConnection fbConnection;
-        private string strConexao = @"User=sysdba;Password=masterkey;DataBase=C:\Programação\TruDaTru\TruDaTru\bin\x86\Debug\Banco\TRUDATRU.FDB.fdb;Dialect=3;ServerType=1";
+        private string strConexao = @"User=sysdba;Password=masterkey;DataBase=|DataDirectory|\Banco\TRUDATRU.FDB;Dialect=3;ServerType=1";
 
         protected bool Conectar()
         {
@@ -19,7 +20,6 @@ namespace BancoDados
             }
             catch (Exception ex)
             {
-                return false;
                 throw new Exception(ex.Message);
             }
         }

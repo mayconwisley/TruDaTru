@@ -1,6 +1,7 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using System;
 using System.Data;
+using System.IO;
 
 namespace BancoDados
 {
@@ -8,7 +9,9 @@ namespace BancoDados
     {
 
         protected FbConnection fbConnection;
-        private string strConexao = @"User=sysdba;Password=masterkey;DataBase=|DataDirectory|\Banco\TRUDATRU.FDB;Dialect=3;ServerType=1";
+        static string strCaminho = AppDomain.CurrentDomain.BaseDirectory.ToString();
+
+        private string strConexao = @"User=sysdba;Password=masterkey;DataBase=" + strCaminho + @"\Banco\TRUDATRU.FDB;ServerType=1";
 
         protected bool Conectar()
         {

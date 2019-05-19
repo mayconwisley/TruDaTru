@@ -16,7 +16,7 @@ namespace Negocio.Competencia
             crud = new BDCrud();
 
             strSQL.Append("INSERT INTO Competencia (Data_Competencia, Ativo) ");
-            strSQL.Append("VALUES(@Data_Competencia, Ativo)");
+            strSQL.Append("VALUES(@Data_Competencia, @Ativo)");
 
             try
             {

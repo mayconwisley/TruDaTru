@@ -1,7 +1,6 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using System;
 using System.Data;
-using System.IO;
 
 namespace BancoDados
 {

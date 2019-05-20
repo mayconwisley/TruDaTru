@@ -29,9 +29,24 @@ namespace TruDaTru
 
         #region Variaveis
         char compAtivo = 'N';
-        int compId = 0;
+        int compId = 0, compIdAtivo = 0;
+        DateTime dtCompetencia;
         #endregion
 
+        private void BotoesReset()
+        {
+            BtnGravar.Enabled = true;
+            BtnAlterar.Enabled = false;
+            BtnExcluir.Enabled = false;
+            MktCompetencia.Clear();
+        }
+
+        private void BotoesAlterarExcluir()
+        {
+            BtnGravar.Enabled = false;
+            BtnAlterar.Enabled = true;
+            BtnExcluir.Enabled = true;
+        }
 
         private void Interacao(ModInteracao.Interacao interacao)
         {
@@ -41,9 +56,17 @@ namespace TruDaTru
 
             modCompetencia = new ModCompetencia();
 
+            if (CbAtivo.Checked)
+            {
+                compAtivo = 'S';
+            }
+            else
+            {
+                compAtivo = 'N';
+            }
+
             try
             {
-
                 modCompetencia.Id = compId;
                 modCompetencia.Competencia = DateTime.Parse(MktCompetencia.Text);
                 modCompetencia.Ativo = compAtivo;
@@ -52,18 +75,23 @@ namespace TruDaTru
                 {
                     case ModInteracao.Interacao.Gravar:
                         negCompInserir.Inserir(modCompetencia);
+                        FecharCompAtiva();
                         break;
                     case ModInteracao.Interacao.Alterar:
-                        negCompAtualizar.Atualizar(modCompetencia);
+                        if (!VerificaCompAtiva())
+                        {
+                            negCompAtualizar.Atualizar(modCompetencia);
+                        }
                         break;
                     case ModInteracao.Interacao.Excluir:
                         negCompExcluir.Excluir(modCompetencia);
                         break;
                     default:
-                        MessageBox.Show("Comando Inválido", "Aviso", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        MessageBox.Show("Comando Inválido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 ListarCompetencia();
+                BotoesReset();
             }
             catch (Exception ex)
             {
@@ -81,6 +109,52 @@ namespace TruDaTru
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void FecharCompAtiva()
+        {
+            negCompConsulta = new NegCompConsulta();
+            negCompAtualizar = new NegCompAtualizar();
+
+            modCompetencia = new ModCompetencia();
+
+            dtCompetencia = new DateTime();
+            try
+            {
+                dtCompetencia = negCompConsulta.CompetenciaAtiva();
+                compIdAtivo = negCompConsulta.Id(dtCompetencia);
+
+                modCompetencia.Id = compIdAtivo;
+                modCompetencia.Ativo = 'N';
+
+                negCompAtualizar.AtualizarStatus(modCompetencia);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private bool VerificaCompAtiva()
+        {
+            negCompConsulta = new NegCompConsulta();
+            try
+            {
+                if (negCompConsulta.CompetenciaQtdAtiva() > 0)
+                {
+                    MessageBox.Show("Não é possível ATIVAR competência!!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
             }
         }
 
@@ -114,6 +188,32 @@ namespace TruDaTru
         private void FrmCadCompetencia_Load(object sender, EventArgs e)
         {
             ListarCompetencia();
+        }
+
+        private void DgvListaCompetencia_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DateTime competencia;
+            char chAtivo;
+            try
+            {
+                compId = int.Parse(DgvListaCompetencia.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                competencia = DateTime.Parse(DgvListaCompetencia.Rows[e.RowIndex].Cells["Data_Competencia"].Value.ToString());
+                chAtivo = char.Parse(DgvListaCompetencia.Rows[e.RowIndex].Cells["Ativo"].Value.ToString());
+                if (chAtivo == 'S')
+                {
+                    CbAtivo.Checked = true;
+                }
+                else
+                {
+                    CbAtivo.Checked = false;
+                }
+                MktCompetencia.Text = competencia.ToString("MM/yyyy");
+                BotoesAlterarExcluir();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

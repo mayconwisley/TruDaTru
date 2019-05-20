@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MktCompetencia = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CbAtivo = new System.Windows.Forms.CheckBox();
@@ -64,6 +64,8 @@
             // CbAtivo
             // 
             this.CbAtivo.AutoSize = true;
+            this.CbAtivo.Checked = true;
+            this.CbAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CbAtivo.Location = new System.Drawing.Point(97, 28);
             this.CbAtivo.Name = "CbAtivo";
             this.CbAtivo.Size = new System.Drawing.Size(50, 17);
@@ -84,6 +86,7 @@
             // 
             // BtnAlterar
             // 
+            this.BtnAlterar.Enabled = false;
             this.BtnAlterar.Location = new System.Drawing.Point(93, 51);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
@@ -94,6 +97,7 @@
             // 
             // BtnExcluir
             // 
+            this.BtnExcluir.Enabled = false;
             this.BtnExcluir.Location = new System.Drawing.Point(174, 51);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
@@ -114,10 +118,13 @@
             this.Data_Competencia,
             this.Ativo});
             this.DgvListaCompetencia.Location = new System.Drawing.Point(12, 104);
+            this.DgvListaCompetencia.MultiSelect = false;
             this.DgvListaCompetencia.Name = "DgvListaCompetencia";
             this.DgvListaCompetencia.ReadOnly = true;
+            this.DgvListaCompetencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListaCompetencia.Size = new System.Drawing.Size(237, 164);
             this.DgvListaCompetencia.TabIndex = 4;
+            this.DgvListaCompetencia.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaCompetencia_CellDoubleClick);
             // 
             // label2
             // 
@@ -139,10 +146,10 @@
             // Data_Competencia
             // 
             this.Data_Competencia.DataPropertyName = "Data_Competencia";
-            dataGridViewCellStyle1.Format = "MM/yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Data_Competencia.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Data_Competencia.HeaderText = "Competencia";
+            dataGridViewCellStyle2.Format = "MM/yyyy";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Data_Competencia.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Data_Competencia.HeaderText = "Competência";
             this.Data_Competencia.Name = "Data_Competencia";
             this.Data_Competencia.ReadOnly = true;
             // 

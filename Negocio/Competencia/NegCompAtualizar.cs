@@ -35,5 +35,29 @@ namespace Negocio.Competencia
                 throw new Exception(ex.Message);
             }
         }
+
+        public bool AtualizarStatus(ModCompetencia competencia)
+        {
+            strSQL = new StringBuilder();
+            crud = new BDCrud();
+
+            strSQL.Append("UPDATE Competencia ");
+            strSQL.Append("SET Ativo = @Ativo ");
+            strSQL.Append("WHERE Id = @Id");
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametro("Ativo", competencia.Ativo);
+                crud.AdicionarParametro("Id", competencia.Id);
+                crud.Executar(CommandType.Text, strSQL.ToString());
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

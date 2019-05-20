@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MktCompetencia = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CbAtivo = new System.Windows.Forms.CheckBox();
@@ -36,10 +36,10 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgvListaCompetencia = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaCompetencia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,19 +121,11 @@
             this.DgvListaCompetencia.MultiSelect = false;
             this.DgvListaCompetencia.Name = "DgvListaCompetencia";
             this.DgvListaCompetencia.ReadOnly = true;
+            this.DgvListaCompetencia.RowHeadersWidth = 35;
             this.DgvListaCompetencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListaCompetencia.Size = new System.Drawing.Size(237, 164);
             this.DgvListaCompetencia.TabIndex = 4;
             this.DgvListaCompetencia.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaCompetencia_CellDoubleClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Lista de competências";
             // 
             // Id
             // 
@@ -146,9 +138,9 @@
             // Data_Competencia
             // 
             this.Data_Competencia.DataPropertyName = "Data_Competencia";
-            dataGridViewCellStyle2.Format = "MM/yyyy";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Data_Competencia.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Data_Competencia.DefaultCellStyle = dataGridViewCellStyle1;
             this.Data_Competencia.HeaderText = "Competência";
             this.Data_Competencia.Name = "Data_Competencia";
             this.Data_Competencia.ReadOnly = true;
@@ -159,6 +151,15 @@
             this.Ativo.HeaderText = "Ativo";
             this.Ativo.Name = "Ativo";
             this.Ativo.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Lista de competências";
             // 
             // FrmCadCompetencia
             // 

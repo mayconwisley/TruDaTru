@@ -75,13 +75,12 @@ namespace TruDaTru
                 {
                     case ModInteracao.Interacao.Gravar:
                         negCompInserir.Inserir(modCompetencia);
-                        FecharCompAtiva();
+                        FecharAbrirCompAtiva('N');
                         break;
                     case ModInteracao.Interacao.Alterar:
-                        if (!VerificaCompAtiva())
-                        {
-                            negCompAtualizar.Atualizar(modCompetencia);
-                        }
+                        FecharAbrirCompAtiva('N');
+                        negCompAtualizar.Atualizar(modCompetencia);
+
                         break;
                     case ModInteracao.Interacao.Excluir:
                         negCompExcluir.Excluir(modCompetencia);
@@ -112,7 +111,7 @@ namespace TruDaTru
             }
         }
 
-        private void FecharCompAtiva()
+        private void FecharAbrirCompAtiva(char chAtivo)
         {
             negCompConsulta = new NegCompConsulta();
             negCompAtualizar = new NegCompAtualizar();
@@ -126,7 +125,7 @@ namespace TruDaTru
                 compIdAtivo = negCompConsulta.Id(dtCompetencia);
 
                 modCompetencia.Id = compIdAtivo;
-                modCompetencia.Ativo = 'N';
+                modCompetencia.Ativo = chAtivo;
 
                 negCompAtualizar.AtualizarStatus(modCompetencia);
             }
@@ -143,7 +142,9 @@ namespace TruDaTru
             {
                 if (negCompConsulta.CompetenciaQtdAtiva() > 0)
                 {
-                    MessageBox.Show("Não é possível ATIVAR competência!!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Não é possível ATIVAR competência\n" +
+                                    "quando já houver uma competência ativa.",
+                                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
                 else

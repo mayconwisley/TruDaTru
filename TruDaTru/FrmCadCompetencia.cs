@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Modelo;
+﻿using Modelo;
 using Negocio.Competencia;
+using System;
+using System.Windows.Forms;
 namespace TruDaTru
 {
     public partial class FrmCadCompetencia : Form
@@ -67,22 +60,22 @@ namespace TruDaTru
 
             try
             {
-                modCompetencia.Id = compId;
                 modCompetencia.Competencia = DateTime.Parse(MktCompetencia.Text);
-                modCompetencia.Ativo = compAtivo;
-
                 switch (interacao)
                 {
                     case ModInteracao.Interacao.Gravar:
-                        negCompInserir.Inserir(modCompetencia);
                         FecharAbrirCompAtiva('N');
+                        modCompetencia.Ativo = compAtivo;
+                        negCompInserir.Inserir(modCompetencia);
                         break;
                     case ModInteracao.Interacao.Alterar:
                         FecharAbrirCompAtiva('N');
+                        modCompetencia.Id = compId;
+                        modCompetencia.Ativo = compAtivo;
                         negCompAtualizar.Atualizar(modCompetencia);
-
                         break;
                     case ModInteracao.Interacao.Excluir:
+                        modCompetencia.Id = compId;
                         negCompExcluir.Excluir(modCompetencia);
                         break;
                     default:
@@ -116,25 +109,25 @@ namespace TruDaTru
             negCompConsulta = new NegCompConsulta();
             negCompAtualizar = new NegCompAtualizar();
 
-            modCompetencia = new ModCompetencia();
-
             dtCompetencia = new DateTime();
             try
             {
                 dtCompetencia = negCompConsulta.CompetenciaAtiva();
-                compIdAtivo = negCompConsulta.Id(dtCompetencia);
 
-                modCompetencia.Id = compIdAtivo;
-                modCompetencia.Ativo = chAtivo;
-
-                negCompAtualizar.AtualizarStatus(modCompetencia);
+                if (dtCompetencia != new DateTime())
+                {
+                    compIdAtivo = negCompConsulta.Id(dtCompetencia);
+                    modCompetencia.Id = compIdAtivo;
+                    modCompetencia.Ativo = chAtivo;
+                    negCompAtualizar.AtualizarStatus(modCompetencia);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /* Não esta sendo utilizada
         private bool VerificaCompAtiva()
         {
             negCompConsulta = new NegCompConsulta();
@@ -157,7 +150,7 @@ namespace TruDaTru
                 MessageBox.Show(ex.Message);
                 return false;
             }
-        }
+        }*/
 
         private void CbAtivo_CheckedChanged(object sender, EventArgs e)
         {

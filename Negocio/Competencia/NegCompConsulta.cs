@@ -90,8 +90,15 @@ namespace Negocio.Competencia
             try
             {
                 crud.LimparParametros();
-                competencia = DateTime.Parse(crud.Executar(CommandType.Text, strSQL.ToString()).ToString());
-                return competencia;
+
+                if (crud.Executar(CommandType.Text, strSQL.ToString()) is null)
+                {
+                    return competencia = new DateTime();
+                }
+                else
+                {
+                    return competencia = DateTime.Parse(crud.Executar(CommandType.Text, strSQL.ToString()).ToString());
+                }
             }
             catch (Exception ex)
             {
@@ -119,7 +126,6 @@ namespace Negocio.Competencia
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
         public char Status(int compId)

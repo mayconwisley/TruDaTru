@@ -82,6 +82,7 @@
             // TxtDescricao
             // 
             this.TxtDescricao.Location = new System.Drawing.Point(15, 78);
+            this.TxtDescricao.MaxLength = 255;
             this.TxtDescricao.Name = "TxtDescricao";
             this.TxtDescricao.Size = new System.Drawing.Size(279, 20);
             this.TxtDescricao.TabIndex = 3;
@@ -110,6 +111,7 @@
             // 
             // BtnAlterar
             // 
+            this.BtnAlterar.Enabled = false;
             this.BtnAlterar.Location = new System.Drawing.Point(313, 43);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
@@ -120,6 +122,7 @@
             // 
             // BtnExcluir
             // 
+            this.BtnExcluir.Enabled = false;
             this.BtnExcluir.Location = new System.Drawing.Point(313, 72);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
@@ -140,6 +143,7 @@
             // TxtPesquisa
             // 
             this.TxtPesquisa.Location = new System.Drawing.Point(15, 165);
+            this.TxtPesquisa.MaxLength = 255;
             this.TxtPesquisa.Name = "TxtPesquisa";
             this.TxtPesquisa.Size = new System.Drawing.Size(373, 20);
             this.TxtPesquisa.TabIndex = 7;
@@ -187,7 +191,7 @@
             // Descricao
             // 
             this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descricao";
+            this.Descricao.HeaderText = "Descrição";
             this.Descricao.Name = "Descricao";
             this.Descricao.ReadOnly = true;
             this.Descricao.Width = 230;

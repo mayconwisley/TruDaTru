@@ -11,16 +11,17 @@ namespace Negocio.Produto
         BDCrud crud;
         DataTable lista;
 
-        public DataTable ListaProduto()
+        public DataTable ListaProdutoAtivo()
         {
             strSQL = new StringBuilder();
             crud = new BDCrud();
             lista = new DataTable();
 
-            strSQL.Append("SELECT P.Id, P.Descricao, P.Ativo, P.Id_Marca, M.Descricao ");
+            strSQL.Append("SELECT P.Id, P.Descricao || +' - '+ || M.Descricao AS Produto_Marca ");
             strSQL.Append("FROM Produto P ");
             strSQL.Append("INNER JOIN Marca M ON P.Id_Marca = M.Id ");
-            strSQL.Append("ORDER BY P.Descricao");
+            strSQL.Append("WHERE Ativo = 'S' ");
+            strSQL.Append("ORDER BY UPPER(P.Descricao)");
 
             try
             {

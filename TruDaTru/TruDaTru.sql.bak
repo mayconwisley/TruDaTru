@@ -26,8 +26,7 @@ CREATE TABlE Marca(
     Descricao VARCHAR(255) NOT NULL,
     Ativo CHAR NOT NULL,
 CONSTRAINT PK_Id_Marca PRIMARY KEY(Id),
-CONSTRAINT CK_Ativo_Marca CHECK(Ativo = 'S' OR Ativo = 'N'), -- S = Sim, N = Não
-CONSTRAINT UNQ_Desc_Marca UNIQUE(Descricao)
+CONSTRAINT CK_Ativo_Marca CHECK(Ativo = 'S' OR Ativo = 'N') -- S = Sim, N = Não
 );
 CREATE GENERATOR GEN_MARCA_ID;
 SET GENERATOR GEN_MARCA_ID TO 0;

@@ -11,7 +11,7 @@ namespace Negocio.Marca
         BDCrud crud;
         DataTable lista;
 
-        public DataTable ListaMarca()
+        public DataTable ListaMarcaAtiva()
         {
             strSQL = new StringBuilder();
             crud = new BDCrud();
@@ -19,7 +19,8 @@ namespace Negocio.Marca
 
             strSQL.Append("SELECT Id, Descricao, Ativo ");
             strSQL.Append("FROM Marca ");
-            strSQL.Append("ORDER BY Descricao");
+            strSQL.Append("WHERE Ativo = 'S' ");
+            strSQL.Append("ORDER BY UPPER(Descricao)");
 
             try
             {
@@ -41,7 +42,7 @@ namespace Negocio.Marca
             strSQL.Append("SELECT Id, Descricao, Ativo ");
             strSQL.Append("FROM Marca ");
             strSQL.Append("WHERE UPPER(Descricao) LIKE UPPER(@pesquisa) ");
-            strSQL.Append("ORDER BY Descricao");
+            strSQL.Append("ORDER BY UPPER(Descricao)");
 
             try
             {

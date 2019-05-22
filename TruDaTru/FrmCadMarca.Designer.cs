@@ -38,6 +38,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtPesquisa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgwListaMarcas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +64,8 @@
             // CbAtivo
             // 
             this.CbAtivo.AutoSize = true;
+            this.CbAtivo.Checked = true;
+            this.CbAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CbAtivo.Location = new System.Drawing.Point(352, 28);
             this.CbAtivo.Name = "CbAtivo";
             this.CbAtivo.Size = new System.Drawing.Size(50, 17);
@@ -76,34 +81,49 @@
             this.BtnGravar.TabIndex = 3;
             this.BtnGravar.Text = "&Gravar";
             this.BtnGravar.UseVisualStyleBackColor = true;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
             // BtnAlterar
             // 
+            this.BtnAlterar.Enabled = false;
             this.BtnAlterar.Location = new System.Drawing.Point(171, 53);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
             this.BtnAlterar.TabIndex = 3;
             this.BtnAlterar.Text = "&Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // BtnExcluir
             // 
+            this.BtnExcluir.Enabled = false;
             this.BtnExcluir.Location = new System.Drawing.Point(252, 53);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
             this.BtnExcluir.TabIndex = 3;
             this.BtnExcluir.Text = "&Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // DgwListaMarcas
             // 
+            this.DgwListaMarcas.AllowUserToAddRows = false;
+            this.DgwListaMarcas.AllowUserToDeleteRows = false;
             this.DgwListaMarcas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DgwListaMarcas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgwListaMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgwListaMarcas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Descricao,
+            this.Ativo});
             this.DgwListaMarcas.Location = new System.Drawing.Point(12, 137);
+            this.DgwListaMarcas.MultiSelect = false;
             this.DgwListaMarcas.Name = "DgwListaMarcas";
+            this.DgwListaMarcas.ReadOnly = true;
+            this.DgwListaMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgwListaMarcas.Size = new System.Drawing.Size(393, 129);
             this.DgwListaMarcas.TabIndex = 4;
+            this.DgwListaMarcas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgwListaMarcas_CellDoubleClick);
             // 
             // label2
             // 
@@ -120,6 +140,7 @@
             this.TxtPesquisa.Name = "TxtPesquisa";
             this.TxtPesquisa.Size = new System.Drawing.Size(393, 20);
             this.TxtPesquisa.TabIndex = 6;
+            this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
             // 
             // label3
             // 
@@ -129,6 +150,29 @@
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Pesquisa";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "Descricao";
+            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            this.Descricao.Width = 270;
+            // 
+            // Ativo
+            // 
+            this.Ativo.DataPropertyName = "Ativo";
+            this.Ativo.HeaderText = "Ativo";
+            this.Ativo.Name = "Ativo";
+            this.Ativo.ReadOnly = true;
             // 
             // FrmCadMarca
             // 
@@ -153,6 +197,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Marca";
+            this.Load += new System.EventHandler(this.FrmCadMarca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgwListaMarcas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,5 +216,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtPesquisa;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ativo;
     }
 }

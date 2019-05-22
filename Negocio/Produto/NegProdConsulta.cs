@@ -33,22 +33,24 @@ namespace Negocio.Produto
             }
         }
 
-        public DataTable PesquisaProduto(string pesquisa)
+        public DataTable PesquisaProduto(string pesquisa, int marcaId)
         {
             strSQL = new StringBuilder();
             crud = new BDCrud();
             lista = new DataTable();
 
-            strSQL.Append("SELECT P.Id, P.Descricao, P.Ativo, P.Id_Marca, M.Descricao ");
+            strSQL.Append("SELECT P.Id, P.Descricao, P.Ativo, P.Id_Marca, M.Descricao AS MarcaDescricao ");
             strSQL.Append("FROM Produto P ");
             strSQL.Append("INNER JOIN Marca M ON P.Id_Marca = M.Id ");
-            strSQL.Append("WHERE UPPER(P.Descricao) LIKE UPPER(@pesquisa) ");
-            strSQL.Append("ORDER BY P.Descricao");
+            strSQL.Append("WHERE UPPER(P.Descricao) LIKE UPPER(@pesquisa) AND ");
+            strSQL.Append("M.Id = @marcaId ");
+            strSQL.Append("ORDER BY UPPER(P.Descricao)");
 
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametro("pesquisa", pesquisa);
+                crud.AdicionarParametro("marcaId", marcaId);
                 return lista = crud.Consulta(CommandType.Text, strSQL.ToString());
             }
             catch (Exception ex)

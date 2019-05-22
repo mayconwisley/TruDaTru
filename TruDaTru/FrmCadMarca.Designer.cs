@@ -35,12 +35,12 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgwListaMarcas = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtPesquisa = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtPesquisa = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgwListaMarcas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,32 +125,6 @@
             this.DgwListaMarcas.TabIndex = 4;
             this.DgwListaMarcas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgwListaMarcas_CellDoubleClick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Lista de Marcas";
-            // 
-            // TxtPesquisa
-            // 
-            this.TxtPesquisa.Location = new System.Drawing.Point(12, 98);
-            this.TxtPesquisa.Name = "TxtPesquisa";
-            this.TxtPesquisa.Size = new System.Drawing.Size(393, 20);
-            this.TxtPesquisa.TabIndex = 6;
-            this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Pesquisa";
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -173,6 +147,33 @@
             this.Ativo.HeaderText = "Ativo";
             this.Ativo.Name = "Ativo";
             this.Ativo.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Lista de Marcas";
+            // 
+            // TxtPesquisa
+            // 
+            this.TxtPesquisa.Location = new System.Drawing.Point(12, 98);
+            this.TxtPesquisa.MaxLength = 255;
+            this.TxtPesquisa.Name = "TxtPesquisa";
+            this.TxtPesquisa.Size = new System.Drawing.Size(393, 20);
+            this.TxtPesquisa.TabIndex = 6;
+            this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Pesquisa";
             // 
             // FrmCadMarca
             // 

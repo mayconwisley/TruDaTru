@@ -29,18 +29,23 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CbxMarca = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.TxtDescricao = new System.Windows.Forms.TextBox();
+            this.CbAtivo = new System.Windows.Forms.CheckBox();
+            this.BtnGravar = new System.Windows.Forms.Button();
+            this.BtnAlterar = new System.Windows.Forms.Button();
+            this.BtnExcluir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TxtPesquisa = new System.Windows.Forms.TextBox();
+            this.DgvListaProduto = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MarcaDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -52,13 +57,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Marca";
             // 
-            // comboBox1
+            // CbxMarca
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(15, 27);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(279, 21);
-            this.comboBox1.TabIndex = 1;
+            this.CbxMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbxMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbxMarca.DisplayMember = "Descricao";
+            this.CbxMarca.FormattingEnabled = true;
+            this.CbxMarca.Location = new System.Drawing.Point(15, 27);
+            this.CbxMarca.Name = "CbxMarca";
+            this.CbxMarca.Size = new System.Drawing.Size(279, 21);
+            this.CbxMarca.TabIndex = 1;
+            this.CbxMarca.ValueMember = "Id";
+            this.CbxMarca.SelectedIndexChanged += new System.EventHandler(this.CbxMarca_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -69,49 +79,54 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Descrição";
             // 
-            // textBox1
+            // TxtDescricao
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(279, 20);
-            this.textBox1.TabIndex = 3;
+            this.TxtDescricao.Location = new System.Drawing.Point(15, 78);
+            this.TxtDescricao.Name = "TxtDescricao";
+            this.TxtDescricao.Size = new System.Drawing.Size(279, 20);
+            this.TxtDescricao.TabIndex = 3;
             // 
-            // checkBox1
+            // CbAtivo
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(15, 114);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(50, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Ativo";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CbAtivo.AutoSize = true;
+            this.CbAtivo.Checked = true;
+            this.CbAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CbAtivo.Location = new System.Drawing.Point(15, 114);
+            this.CbAtivo.Name = "CbAtivo";
+            this.CbAtivo.Size = new System.Drawing.Size(50, 17);
+            this.CbAtivo.TabIndex = 4;
+            this.CbAtivo.Text = "Ativo";
+            this.CbAtivo.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BtnGravar
             // 
-            this.button1.Location = new System.Drawing.Point(313, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "&Gravar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnGravar.Location = new System.Drawing.Point(313, 14);
+            this.BtnGravar.Name = "BtnGravar";
+            this.BtnGravar.Size = new System.Drawing.Size(75, 23);
+            this.BtnGravar.TabIndex = 5;
+            this.BtnGravar.Text = "&Gravar";
+            this.BtnGravar.UseVisualStyleBackColor = true;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
-            // button2
+            // BtnAlterar
             // 
-            this.button2.Location = new System.Drawing.Point(313, 43);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "&Alterar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Location = new System.Drawing.Point(313, 43);
+            this.BtnAlterar.Name = "BtnAlterar";
+            this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.BtnAlterar.TabIndex = 5;
+            this.BtnAlterar.Text = "&Alterar";
+            this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
-            // button3
+            // BtnExcluir
             // 
-            this.button3.Location = new System.Drawing.Point(313, 72);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "&Excluir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Location = new System.Drawing.Point(313, 72);
+            this.BtnExcluir.Name = "BtnExcluir";
+            this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.BtnExcluir.TabIndex = 5;
+            this.BtnExcluir.Text = "&Excluir";
+            this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // label3
             // 
@@ -122,22 +137,35 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Pesquisa";
             // 
-            // textBox2
+            // TxtPesquisa
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 165);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(373, 20);
-            this.textBox2.TabIndex = 7;
+            this.TxtPesquisa.Location = new System.Drawing.Point(15, 165);
+            this.TxtPesquisa.Name = "TxtPesquisa";
+            this.TxtPesquisa.Size = new System.Drawing.Size(373, 20);
+            this.TxtPesquisa.TabIndex = 7;
+            this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
             // 
-            // dataGridView1
+            // DgvListaProduto
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 204);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(373, 150);
-            this.dataGridView1.TabIndex = 8;
+            this.DgvListaProduto.AllowUserToAddRows = false;
+            this.DgvListaProduto.AllowUserToDeleteRows = false;
+            this.DgvListaProduto.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DgvListaProduto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DgvListaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Descricao,
+            this.Ativo,
+            this.Id_Marca,
+            this.MarcaDescricao});
+            this.DgvListaProduto.Location = new System.Drawing.Point(15, 204);
+            this.DgvListaProduto.MultiSelect = false;
+            this.DgvListaProduto.Name = "DgvListaProduto";
+            this.DgvListaProduto.ReadOnly = true;
+            this.DgvListaProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvListaProduto.Size = new System.Drawing.Size(373, 150);
+            this.DgvListaProduto.TabIndex = 8;
+            this.DgvListaProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaProduto_CellDoubleClick);
             // 
             // label4
             // 
@@ -148,22 +176,61 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Lista Produtos";
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "Descricao";
+            this.Descricao.HeaderText = "Descricao";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            this.Descricao.Width = 230;
+            // 
+            // Ativo
+            // 
+            this.Ativo.DataPropertyName = "Ativo";
+            this.Ativo.HeaderText = "Ativo";
+            this.Ativo.Name = "Ativo";
+            this.Ativo.ReadOnly = true;
+            // 
+            // Id_Marca
+            // 
+            this.Id_Marca.DataPropertyName = "Id_Marca";
+            this.Id_Marca.HeaderText = "Id_Marca";
+            this.Id_Marca.Name = "Id_Marca";
+            this.Id_Marca.ReadOnly = true;
+            this.Id_Marca.Visible = false;
+            // 
+            // MarcaDescricao
+            // 
+            this.MarcaDescricao.DataPropertyName = "MarcaDescricao";
+            this.MarcaDescricao.HeaderText = "MarcaDescricao";
+            this.MarcaDescricao.Name = "MarcaDescricao";
+            this.MarcaDescricao.ReadOnly = true;
+            this.MarcaDescricao.Visible = false;
+            // 
             // FrmCadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 364);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.DgvListaProduto);
+            this.Controls.Add(this.TxtPesquisa);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BtnExcluir);
+            this.Controls.Add(this.BtnAlterar);
+            this.Controls.Add(this.BtnGravar);
+            this.Controls.Add(this.CbAtivo);
+            this.Controls.Add(this.TxtDescricao);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CbxMarca);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -173,7 +240,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Produto";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmCadProduto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,16 +250,21 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CbxMarca;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox TxtDescricao;
+        private System.Windows.Forms.CheckBox CbAtivo;
+        private System.Windows.Forms.Button BtnGravar;
+        private System.Windows.Forms.Button BtnAlterar;
+        private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox TxtPesquisa;
+        private System.Windows.Forms.DataGridView DgvListaProduto;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ativo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MarcaDescricao;
     }
 }

@@ -47,7 +47,7 @@ namespace TruDaTru
             BtnAlterar.Enabled = true;
             BtnExcluir.Enabled = true;
         }
-        /*Lista no grid as marcar conforme a pesquisa é feita*/
+        /*Lista no grid as marcas conforme a pesquisa é feita*/
         private void ListaMarcas(string pesquisa)
         {
             negMarcConsulta = new NegMarcConsulta();

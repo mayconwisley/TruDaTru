@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MktDataCadastro = new System.Windows.Forms.MaskedTextBox();
@@ -48,6 +50,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtPesquisa = new System.Windows.Forms.TextBox();
+            this.Id_Estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Competecia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo_Es = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qtd_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor_Unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor_Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProduto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,11 +94,16 @@
             // 
             // CbxProduto
             // 
+            this.CbxProduto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbxProduto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbxProduto.DisplayMember = "Produto_Marca";
             this.CbxProduto.FormattingEnabled = true;
             this.CbxProduto.Location = new System.Drawing.Point(101, 70);
             this.CbxProduto.Name = "CbxProduto";
             this.CbxProduto.Size = new System.Drawing.Size(347, 21);
             this.CbxProduto.TabIndex = 3;
+            this.CbxProduto.ValueMember = "Id";
+            this.CbxProduto.SelectedIndexChanged += new System.EventHandler(this.CbxProduto_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -97,7 +116,12 @@
             // 
             // CbxTipo
             // 
+            this.CbxTipo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbxTipo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CbxTipo.FormattingEnabled = true;
+            this.CbxTipo.Items.AddRange(new object[] {
+            "Entrada",
+            "Saída"});
             this.CbxTipo.Location = new System.Drawing.Point(454, 70);
             this.CbxTipo.Name = "CbxTipo";
             this.CbxTipo.Size = new System.Drawing.Size(93, 21);
@@ -156,34 +180,58 @@
             this.BtnGravar.TabIndex = 11;
             this.BtnGravar.Text = "&Gravar";
             this.BtnGravar.UseVisualStyleBackColor = true;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
             // BtnAlterar
             // 
+            this.BtnAlterar.Enabled = false;
             this.BtnAlterar.Location = new System.Drawing.Point(566, 73);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
             this.BtnAlterar.TabIndex = 11;
             this.BtnAlterar.Text = "&Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // BtnExcluir
             // 
+            this.BtnExcluir.Enabled = false;
             this.BtnExcluir.Location = new System.Drawing.Point(566, 102);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
             this.BtnExcluir.TabIndex = 11;
             this.BtnExcluir.Text = "&Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // DgvListaProduto
             // 
+            this.DgvListaProduto.AllowUserToAddRows = false;
+            this.DgvListaProduto.AllowUserToDeleteRows = false;
             this.DgvListaProduto.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DgvListaProduto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvListaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id_Estoque,
+            this.Id_Competecia,
+            this.Id_Marca,
+            this.Id_Produto,
+            this.Competencia,
+            this.Marca,
+            this.Produto,
+            this.Tipo_Es,
+            this.Data_Cadastro,
+            this.Qtd_Produto,
+            this.Valor_Unitario,
+            this.Valor_Total});
             this.DgvListaProduto.Location = new System.Drawing.Point(13, 206);
+            this.DgvListaProduto.MultiSelect = false;
             this.DgvListaProduto.Name = "DgvListaProduto";
+            this.DgvListaProduto.ReadOnly = true;
+            this.DgvListaProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListaProduto.Size = new System.Drawing.Size(628, 234);
             this.DgvListaProduto.TabIndex = 12;
+            this.DgvListaProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaProduto_CellDoubleClick);
             // 
             // label7
             // 
@@ -229,6 +277,103 @@
             this.TxtPesquisa.Size = new System.Drawing.Size(628, 20);
             this.TxtPesquisa.TabIndex = 17;
             // 
+            // Id_Estoque
+            // 
+            this.Id_Estoque.DataPropertyName = "Id_Estoque";
+            this.Id_Estoque.HeaderText = "Id_Estoque";
+            this.Id_Estoque.Name = "Id_Estoque";
+            this.Id_Estoque.ReadOnly = true;
+            this.Id_Estoque.Visible = false;
+            // 
+            // Id_Competecia
+            // 
+            this.Id_Competecia.DataPropertyName = "Id_Competecia";
+            this.Id_Competecia.HeaderText = "Id_Competecia";
+            this.Id_Competecia.Name = "Id_Competecia";
+            this.Id_Competecia.ReadOnly = true;
+            this.Id_Competecia.Visible = false;
+            // 
+            // Id_Marca
+            // 
+            this.Id_Marca.DataPropertyName = "Id_Marca";
+            this.Id_Marca.HeaderText = "Id_Marca";
+            this.Id_Marca.Name = "Id_Marca";
+            this.Id_Marca.ReadOnly = true;
+            this.Id_Marca.Visible = false;
+            // 
+            // Id_Produto
+            // 
+            this.Id_Produto.DataPropertyName = "Id_Produto";
+            this.Id_Produto.HeaderText = "Id_Produto";
+            this.Id_Produto.Name = "Id_Produto";
+            this.Id_Produto.ReadOnly = true;
+            this.Id_Produto.Visible = false;
+            // 
+            // Competencia
+            // 
+            this.Competencia.DataPropertyName = "Competencia";
+            this.Competencia.HeaderText = "Competencia";
+            this.Competencia.Name = "Competencia";
+            this.Competencia.ReadOnly = true;
+            this.Competencia.Visible = false;
+            // 
+            // Marca
+            // 
+            this.Marca.DataPropertyName = "Marca";
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            // 
+            // Produto
+            // 
+            this.Produto.DataPropertyName = "Produto";
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
+            // 
+            // Tipo_Es
+            // 
+            this.Tipo_Es.DataPropertyName = "Tipo_Es";
+            this.Tipo_Es.HeaderText = "Tipo_Es";
+            this.Tipo_Es.Name = "Tipo_Es";
+            this.Tipo_Es.ReadOnly = true;
+            // 
+            // Data_Cadastro
+            // 
+            this.Data_Cadastro.DataPropertyName = "Data_Cadastro";
+            this.Data_Cadastro.HeaderText = "Data_Cadastro";
+            this.Data_Cadastro.Name = "Data_Cadastro";
+            this.Data_Cadastro.ReadOnly = true;
+            // 
+            // Qtd_Produto
+            // 
+            this.Qtd_Produto.DataPropertyName = "Qtd_Produto";
+            this.Qtd_Produto.HeaderText = "Qtd_Produto";
+            this.Qtd_Produto.Name = "Qtd_Produto";
+            this.Qtd_Produto.ReadOnly = true;
+            // 
+            // Valor_Unitario
+            // 
+            this.Valor_Unitario.DataPropertyName = "Valor_Unitario";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Valor_Unitario.HeaderText = "Valor_Unitario";
+            this.Valor_Unitario.Name = "Valor_Unitario";
+            this.Valor_Unitario.ReadOnly = true;
+            // 
+            // Valor_Total
+            // 
+            this.Valor_Total.DataPropertyName = "Valor_Total";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Valor_Total.HeaderText = "Valor_Total";
+            this.Valor_Total.Name = "Valor_Total";
+            this.Valor_Total.ReadOnly = true;
+            // 
             // FrmCadEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,6 +407,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Estoque";
+            this.Load += new System.EventHandler(this.FrmCadEstoque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -290,5 +436,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtPesquisa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Estoque;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Competecia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Competencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_Es;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Cadastro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qtd_Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Unitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Total;
     }
 }

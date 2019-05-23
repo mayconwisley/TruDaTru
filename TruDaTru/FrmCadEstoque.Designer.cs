@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MktDataCadastro = new System.Windows.Forms.MaskedTextBox();
@@ -55,8 +55,8 @@
             this.Id_Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo_Es = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qtd_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,6 +153,9 @@
             this.TxtQuantidade.TabIndex = 8;
             this.TxtQuantidade.Text = "0";
             this.TxtQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtQuantidade.TextChanged += new System.EventHandler(this.TxtQuantidade_TextChanged);
+            this.TxtQuantidade.Enter += new System.EventHandler(this.TxtQuantidade_Enter);
+            this.TxtQuantidade.Leave += new System.EventHandler(this.TxtQuantidade_Leave);
             // 
             // TxtValor
             // 
@@ -162,6 +165,9 @@
             this.TxtValor.TabIndex = 9;
             this.TxtValor.Text = "0,00";
             this.TxtValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtValor.TextChanged += new System.EventHandler(this.TxtValor_TextChanged);
+            this.TxtValor.Enter += new System.EventHandler(this.TxtValor_Enter);
+            this.TxtValor.Leave += new System.EventHandler(this.TxtValor_Leave);
             // 
             // label6
             // 
@@ -217,8 +223,8 @@
             this.Id_Marca,
             this.Id_Produto,
             this.Competencia,
-            this.Marca,
             this.Produto,
+            this.Marca,
             this.Tipo_Es,
             this.Data_Cadastro,
             this.Qtd_Produto,
@@ -317,19 +323,19 @@
             this.Competencia.ReadOnly = true;
             this.Competencia.Visible = false;
             // 
-            // Marca
-            // 
-            this.Marca.DataPropertyName = "Marca";
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            // 
             // Produto
             // 
             this.Produto.DataPropertyName = "Produto";
             this.Produto.HeaderText = "Produto";
             this.Produto.Name = "Produto";
             this.Produto.ReadOnly = true;
+            // 
+            // Marca
+            // 
+            this.Marca.DataPropertyName = "Marca";
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
             // 
             // Tipo_Es
             // 
@@ -355,10 +361,10 @@
             // Valor_Unitario
             // 
             this.Valor_Unitario.DataPropertyName = "Valor_Unitario";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle13;
             this.Valor_Unitario.HeaderText = "Valor_Unitario";
             this.Valor_Unitario.Name = "Valor_Unitario";
             this.Valor_Unitario.ReadOnly = true;
@@ -366,10 +372,10 @@
             // Valor_Total
             // 
             this.Valor_Total.DataPropertyName = "Valor_Total";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle14;
             this.Valor_Total.HeaderText = "Valor_Total";
             this.Valor_Total.Name = "Valor_Total";
             this.Valor_Total.ReadOnly = true;
@@ -441,8 +447,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Competencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_Es;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_Cadastro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtd_Produto;

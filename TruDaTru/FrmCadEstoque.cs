@@ -1,4 +1,5 @@
 ﻿using Modelo;
+using Negocio;
 using Negocio.Competencia;
 using Negocio.Estoque;
 using Negocio.Marca;
@@ -30,18 +31,21 @@ namespace TruDaTru
         NegEstAtualizar negEstAtualizar;
         NegEstExcluir negEstExcluir;
         NegEstConsulta negEstConsulta;
+        NegEstCalculo negEstCalculo;
 
         NegCompConsulta negCompConsulta;
 
         NegProdConsulta negProdConsulta;
 
         NegMarcConsulta negMarcConsulta;
+
+        Validador validador;
         #endregion
 
         #region Variaveis
         char tipoES;
         int qtdProduto = 0, prodId = 0, CompId = 0, estId = 0, marcId = 0;
-        decimal vlrProduto;
+        decimal vlrProduto = 0;
         string strPesquisa;
         DateTime dtCompetencia;
         #endregion
@@ -106,8 +110,7 @@ namespace TruDaTru
             BtnExcluir.Enabled = true;
         }
 
-
-        private void Integracao(ModInteracao.Interacao interacao)
+        private void Interacao(ModInteracao.Interacao interacao)
         {
             negEstInserir = new NegEstInserir();
             negEstAtualizar = new NegEstAtualizar();
@@ -164,17 +167,99 @@ namespace TruDaTru
 
         private void BtnGravar_Click(object sender, EventArgs e)
         {
-            Integracao(ModInteracao.Interacao.Gravar);
+            Interacao(ModInteracao.Interacao.Gravar);
         }
 
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            Integracao(ModInteracao.Interacao.Alterar);
+            Interacao(ModInteracao.Interacao.Alterar);
+        }
+
+        private void TxtValor_Leave(object sender, EventArgs e)
+        {
+            negEstCalculo = new NegEstCalculo();
+            validador = new Validador();
+            try
+            {
+                TxtValor.Text = validador.ZeroValor(TxtValor.Text);
+                TxtValor.Text = validador.FormatarValor(TxtValor.Text);
+
+                qtdProduto = int.Parse(TxtQuantidade.Text.Trim());
+                vlrProduto = decimal.Parse(TxtValor.Text.Trim());
+                TxtValorTotal.Text = negEstCalculo.ValorTotal(qtdProduto, vlrProduto).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void TxtQuantidade_TextChanged(object sender, EventArgs e)
+        {
+            validador = new Validador();
+            try
+            {
+                TxtQuantidade.Text = validador.Numero(TxtQuantidade.Text);
+                TxtQuantidade.Select(TxtQuantidade.Text.Length, 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void TxtValor_TextChanged(object sender, EventArgs e)
+        {
+            validador = new Validador();
+            try
+            {
+                TxtValor.Text = validador.Valor(TxtValor.Text);
+                TxtValor.Select(TxtValor.Text.Length, 0);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void TxtValor_Enter(object sender, EventArgs e)
+        {
+            if (TxtValor.Text == "0,00")
+            {
+                TxtValor.Text = "";
+            }
+        }
+
+        private void TxtQuantidade_Leave(object sender, EventArgs e)
+        {
+            negEstCalculo = new NegEstCalculo();
+            validador = new Validador();
+            try
+            {
+                TxtQuantidade.Text = validador.ZeroNumero(TxtQuantidade.Text);
+
+                qtdProduto = int.Parse(TxtQuantidade.Text.Trim());
+                vlrProduto = decimal.Parse(TxtValor.Text.Trim());
+                TxtValorTotal.Text = negEstCalculo.ValorTotal(qtdProduto, vlrProduto).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void TxtQuantidade_Enter(object sender, EventArgs e)
+        {
+            if (TxtQuantidade.Text == "0")
+            {
+                TxtQuantidade.Text = "";
+            }
         }
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            Integracao(ModInteracao.Interacao.Excluir);
+            Interacao(ModInteracao.Interacao.Excluir);
         }
 
         private void DgvListaProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -222,6 +307,7 @@ namespace TruDaTru
             CompetenciaAtiva();
             ListaProdutoAtivo();
             ListaEstoqueCompetencia(CompId);
+            CbxTipo.SelectedIndex = 0;
         }
     }
 }

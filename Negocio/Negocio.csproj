@@ -56,6 +56,7 @@
     <Compile Include="Competencia\NegCompExcluir.cs" />
     <Compile Include="Competencia\NegCompInserir.cs" />
     <Compile Include="Estoque\NegEstAtualizar.cs" />
+    <Compile Include="Estoque\NegEstCalculo.cs" />
     <Compile Include="Estoque\NegEstConsulta.cs" />
     <Compile Include="Estoque\NegEstExcluir.cs" />
     <Compile Include="Estoque\NegEstInserir.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Produto\NegProdExcluir.cs" />
     <Compile Include="Produto\NegProdInserir.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validador.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

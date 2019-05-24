@@ -45,7 +45,9 @@ namespace Negocio.Estoque
                           "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
             strSQL.Append("FROM VW_Estoque VW ");
             strSQL.Append("WHERE VW.Id_Competecia = @Id_Competecia ");
-            strSQL.Append("ORDER BY VW.Data_Cadastro DESC");
+            strSQL.Append("ORDER BY VW.Data_Cadastro DESC, " +
+                          "UPPER(VW.Produto) ASC");
+
 
             try
             {

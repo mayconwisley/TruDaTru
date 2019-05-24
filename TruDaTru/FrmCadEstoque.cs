@@ -2,16 +2,8 @@
 using Negocio;
 using Negocio.Competencia;
 using Negocio.Estoque;
-using Negocio.Marca;
 using Negocio.Produto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TruDaTru
@@ -37,8 +29,6 @@ namespace TruDaTru
 
         NegProdConsulta negProdConsulta;
 
-        NegMarcConsulta negMarcConsulta;
-
         Validador validador;
         #endregion
 
@@ -46,7 +36,6 @@ namespace TruDaTru
         char tipoES;
         int qtdProduto = 0, prodId = 0, CompId = 0, estId = 0, marcId = 0;
         decimal vlrProduto = 0;
-        string strPesquisa;
         DateTime dtCompetencia;
         #endregion
         private void CompetenciaAtiva()
@@ -241,7 +230,7 @@ namespace TruDaTru
 
                 qtdProduto = int.Parse(TxtQuantidade.Text.Trim());
                 vlrProduto = decimal.Parse(TxtValor.Text.Trim());
-                TxtValorTotal.Text = negEstCalculo.ValorTotal(qtdProduto, vlrProduto).ToString();
+                TxtValorTotal.Text = negEstCalculo.ValorTotal(qtdProduto, vlrProduto).ToString("#,##0.00");
             }
             catch (Exception ex)
             {

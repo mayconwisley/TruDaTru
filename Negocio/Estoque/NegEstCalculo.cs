@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Negocio.Estoque
+﻿namespace Negocio.Estoque
 {
     public class NegEstCalculo
     {

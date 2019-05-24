@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MktDataCadastro = new System.Windows.Forms.MaskedTextBox();
@@ -340,43 +340,43 @@
             // Tipo_Es
             // 
             this.Tipo_Es.DataPropertyName = "Tipo_Es";
-            this.Tipo_Es.HeaderText = "Tipo_Es";
+            this.Tipo_Es.HeaderText = "Tipo ES";
             this.Tipo_Es.Name = "Tipo_Es";
             this.Tipo_Es.ReadOnly = true;
             // 
             // Data_Cadastro
             // 
             this.Data_Cadastro.DataPropertyName = "Data_Cadastro";
-            this.Data_Cadastro.HeaderText = "Data_Cadastro";
+            this.Data_Cadastro.HeaderText = "Data Cadastro";
             this.Data_Cadastro.Name = "Data_Cadastro";
             this.Data_Cadastro.ReadOnly = true;
             // 
             // Qtd_Produto
             // 
             this.Qtd_Produto.DataPropertyName = "Qtd_Produto";
-            this.Qtd_Produto.HeaderText = "Qtd_Produto";
+            this.Qtd_Produto.HeaderText = "Qtd Produto";
             this.Qtd_Produto.Name = "Qtd_Produto";
             this.Qtd_Produto.ReadOnly = true;
             // 
             // Valor_Unitario
             // 
             this.Valor_Unitario.DataPropertyName = "Valor_Unitario";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Valor_Unitario.HeaderText = "Valor_Unitario";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Valor_Unitario.HeaderText = "Valor Unitário";
             this.Valor_Unitario.Name = "Valor_Unitario";
             this.Valor_Unitario.ReadOnly = true;
             // 
             // Valor_Total
             // 
             this.Valor_Total.DataPropertyName = "Valor_Total";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "N2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Valor_Total.HeaderText = "Valor_Total";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Valor_Total.HeaderText = "Valor Total";
             this.Valor_Total.Name = "Valor_Total";
             this.Valor_Total.ReadOnly = true;
             // 

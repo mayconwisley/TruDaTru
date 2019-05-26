@@ -45,8 +45,14 @@ namespace Negocio.Competencia
             {
                 crud.LimparParametros();
                 crud.AdicionarParametro("Data_Competencia", competencia);
-                id = int.Parse(crud.Executar(CommandType.Text, strSQL.ToString()).ToString());
-                return id;
+                if (crud.Executar(CommandType.Text, strSQL.ToString()) is null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return id = int.Parse(crud.Executar(CommandType.Text, strSQL.ToString()).ToString());
+                }
             }
             catch (Exception ex)
             {

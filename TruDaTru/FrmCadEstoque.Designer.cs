@@ -45,11 +45,6 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgvListaProduto = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TxtValorTotal = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TxtPesquisa = new System.Windows.Forms.TextBox();
             this.Id_Estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Competecia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +57,11 @@
             this.Qtd_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor_Unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor_Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TxtValorTotal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.TxtPesquisa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProduto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -239,50 +239,6 @@
             this.DgvListaProduto.TabIndex = 12;
             this.DgvListaProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaProduto_CellDoubleClick);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 190);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Lista Produto";
-            // 
-            // TxtValorTotal
-            // 
-            this.TxtValorTotal.Location = new System.Drawing.Point(154, 118);
-            this.TxtValorTotal.Name = "TxtValorTotal";
-            this.TxtValorTotal.ReadOnly = true;
-            this.TxtValorTotal.Size = new System.Drawing.Size(90, 20);
-            this.TxtValorTotal.TabIndex = 14;
-            this.TxtValorTotal.Text = "0,00";
-            this.TxtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(151, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Valor Total";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 141);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Pesquisa";
-            // 
-            // TxtPesquisa
-            // 
-            this.TxtPesquisa.Location = new System.Drawing.Point(13, 157);
-            this.TxtPesquisa.Name = "TxtPesquisa";
-            this.TxtPesquisa.Size = new System.Drawing.Size(628, 20);
-            this.TxtPesquisa.TabIndex = 17;
-            // 
             // Id_Estoque
             // 
             this.Id_Estoque.DataPropertyName = "Id_Estoque";
@@ -379,6 +335,50 @@
             this.Valor_Total.HeaderText = "Valor Total";
             this.Valor_Total.Name = "Valor_Total";
             this.Valor_Total.ReadOnly = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 190);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Lista Produto";
+            // 
+            // TxtValorTotal
+            // 
+            this.TxtValorTotal.Location = new System.Drawing.Point(154, 118);
+            this.TxtValorTotal.Name = "TxtValorTotal";
+            this.TxtValorTotal.ReadOnly = true;
+            this.TxtValorTotal.Size = new System.Drawing.Size(90, 20);
+            this.TxtValorTotal.TabIndex = 14;
+            this.TxtValorTotal.Text = "0,00";
+            this.TxtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(151, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Valor Total";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 141);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Pesquisa";
+            // 
+            // TxtPesquisa
+            // 
+            this.TxtPesquisa.Location = new System.Drawing.Point(13, 157);
+            this.TxtPesquisa.Name = "TxtPesquisa";
+            this.TxtPesquisa.Size = new System.Drawing.Size(628, 20);
+            this.TxtPesquisa.TabIndex = 17;
             // 
             // FrmCadEstoque
             // 

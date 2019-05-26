@@ -18,7 +18,7 @@ namespace Negocio.Estoque
             lista = new DataTable();
 
             strSQL.Append("SELECT VW.Id_Estoque, VW.Id_Competecia, VW.Id_Marca, VW.Id_Produto, " +
-                          "VW.Competencia, VW.Marca, VW.Produto, VW.Tipo_Es, VW.Data_Cadastro, " +
+                          "VW.Competencia, VW.Marca, VW.Produto, IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES, VW.Data_Cadastro, " +
                           "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
             strSQL.Append("FROM VW_Estoque VW ");
             strSQL.Append("ORDER BY VW.Data_Cadastro DESC");
@@ -33,7 +33,6 @@ namespace Negocio.Estoque
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable ListaEstoqueCompetencia(int compId)
         {
             strSQL = new StringBuilder();
@@ -41,7 +40,7 @@ namespace Negocio.Estoque
             lista = new DataTable();
 
             strSQL.Append("SELECT VW.Id_Estoque, VW.Id_Competecia, VW.Id_Marca, VW.Id_Produto, " +
-                          "VW.Competencia, VW.Marca, VW.Produto, VW.Tipo_Es, VW.Data_Cadastro, " +
+                          "VW.Competencia, VW.Marca, VW.Produto, IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES, VW.Data_Cadastro, " +
                           "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
             strSQL.Append("FROM VW_Estoque VW ");
             strSQL.Append("WHERE VW.Id_Competecia = @Id_Competecia ");
@@ -60,9 +59,83 @@ namespace Negocio.Estoque
                 throw new Exception(ex.Message);
             }
         }
+        public DataTable ListaEstoquePeriodo(DateTime dataInicio, DateTime dataFinal)
+        {
+            strSQL = new StringBuilder();
+            crud = new BDCrud();
+            lista = new DataTable();
+
+            strSQL.Append("SELECT VW.Id_Estoque, VW.Id_Competecia, VW.Id_Marca, VW.Id_Produto, " +
+                          "VW.Competencia, VW.Marca, VW.Produto, IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES, VW.Data_Cadastro, " +
+                          "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
+            strSQL.Append("FROM VW_Estoque VW ");
+            strSQL.Append("WHERE VW.Data_Cadastro BETWEEN @dataInicio AND @dataFinal ");
+            strSQL.Append("ORDER BY VW.Data_Cadastro DESC, " +
+                          "UPPER(VW.Produto) ASC");
 
 
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametro("dataInicio", dataInicio);
+                crud.AdicionarParametro("dataFinal", dataFinal);
+                return lista = crud.Consulta(CommandType.Text, strSQL.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public DataTable ListaEstoqueMarca(int marcaId)
+        {
+            strSQL = new StringBuilder();
+            crud = new BDCrud();
+            lista = new DataTable();
 
+            strSQL.Append("SELECT VW.Id_Estoque, VW.Id_Competecia, VW.Id_Marca, VW.Id_Produto, " +
+                          "VW.Competencia, VW.Marca, VW.Produto, IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES, VW.Data_Cadastro, " +
+                          "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
+            strSQL.Append("FROM VW_Estoque VW ");
+            strSQL.Append("WHERE VW.Id_Marca = @Id_Marca ");
+            strSQL.Append("ORDER BY VW.Data_Cadastro DESC, " +
+                          "UPPER(VW.Produto) ASC");
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametro("Id_Marca", marcaId);
+                return lista = crud.Consulta(CommandType.Text, strSQL.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public DataTable ListaEstoqueProduto(int produtoId)
+        {
+            strSQL = new StringBuilder();
+            crud = new BDCrud();
+            lista = new DataTable();
+
+            strSQL.Append("SELECT VW.Id_Estoque, VW.Id_Competecia, VW.Id_Marca, VW.Id_Produto, " +
+                          "VW.Competencia, VW.Marca, VW.Produto, IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES, VW.Data_Cadastro, " +
+                          "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
+            strSQL.Append("FROM VW_Estoque VW ");
+            strSQL.Append("WHERE VW.Id_Produto = @Id_Produto ");
+            strSQL.Append("ORDER BY VW.Data_Cadastro DESC, " +
+                          "UPPER(VW.Produto) ASC");
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametro("Id_Produto", produtoId);
+                return lista = crud.Consulta(CommandType.Text, strSQL.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public DataTable PesquisaMarca(string pesquisa)
         {
             strSQL = new StringBuilder();
@@ -71,7 +144,7 @@ namespace Negocio.Estoque
 
 
             strSQL.Append("SELECT VW.Id_Estoque, VW.Id_Competecia, VW.Id_Marca, VW.Id_Produto, " +
-                          "VW.Competencia, VW.Marca, VW.Produto, VW.Tipo_Es, VW.Data_Cadastro, " +
+                          "VW.Competencia, VW.Marca, VW.Produto, IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES, VW.Data_Cadastro, " +
                           "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
             strSQL.Append("FROM VW_Estoque VW ");
             strSQL.Append("WHERE UPPER(VW.Produto) LIKE UPPER(@pesquisa) ");

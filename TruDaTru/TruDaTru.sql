@@ -48,7 +48,6 @@ CREATE TABLE Produto(
     Id_Marca INTEGER NOT NULL,
 CONSTRAINT PK_Id_Produto PRIMARY KEY(Id),
 CONSTRAINT FK_Prod_Marca FOREIGN KEY (Id_Marca) REFERENCES Marca(Id),
-CONSTRAINT UNQ_Desc_Prod UNIQUE(Descricao),
 CONSTRAINT CK_Ativo_Prod CHECK(Ativo = 'S' OR Ativo = 'N') -- S = Sim, N = Não
 );
 CREATE GENERATOR GEN_PRODUTO_ID;
@@ -98,7 +97,7 @@ AS
         C.Data_Competencia AS Competencia,
         M.Descricao AS Marca,
         P.Descricao AS Produto,
-        E.Tipo_ES,
+        IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES,
         E.Data_Cadastro AS Data_Cadastro,
         E.Qtd_Produto,
         E.Valor_Unitario,

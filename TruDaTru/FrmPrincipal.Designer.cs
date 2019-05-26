@@ -54,7 +54,7 @@
             this.MenuSair});
             this.MenuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.MenuPrincipal.Name = "MenuPrincipal";
-            this.MenuPrincipal.Size = new System.Drawing.Size(1016, 24);
+            this.MenuPrincipal.Size = new System.Drawing.Size(1196, 24);
             this.MenuPrincipal.TabIndex = 1;
             this.MenuPrincipal.Text = "menuStrip1";
             // 
@@ -110,6 +110,7 @@
             this.MenuEstCons.Name = "MenuEstCons";
             this.MenuEstCons.Size = new System.Drawing.Size(121, 22);
             this.MenuEstCons.Text = "Consulta";
+            this.MenuEstCons.Click += new System.EventHandler(this.MenuEstCons_Click);
             // 
             // MenuRelatorio
             // 
@@ -148,9 +149,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 680);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1016, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1196, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -158,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 561);
+            this.ClientSize = new System.Drawing.Size(1196, 702);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.MenuPrincipal);
             this.IsMdiContainer = true;

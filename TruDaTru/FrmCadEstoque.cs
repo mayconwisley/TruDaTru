@@ -23,8 +23,7 @@ namespace TruDaTru
         NegEstAtualizar negEstAtualizar;
         NegEstExcluir negEstExcluir;
         NegEstConsulta negEstConsulta;
-        NegEstCalculo negEstCalculo;
-
+        
         NegCompConsulta negCompConsulta;
 
         NegProdConsulta negProdConsulta;
@@ -166,7 +165,6 @@ namespace TruDaTru
 
         private void TxtValor_Leave(object sender, EventArgs e)
         {
-            negEstCalculo = new NegEstCalculo();
             validador = new Validador();
             try
             {
@@ -175,7 +173,7 @@ namespace TruDaTru
 
                 qtdProduto = int.Parse(TxtQuantidade.Text.Trim());
                 vlrProduto = decimal.Parse(TxtValor.Text.Trim());
-                TxtValorTotal.Text = negEstCalculo.ValorTotal(qtdProduto, vlrProduto).ToString();
+                TxtValorTotal.Text = NegEstCalculo.ValorTotal(qtdProduto, vlrProduto).ToString();
             }
             catch (Exception ex)
             {
@@ -222,7 +220,6 @@ namespace TruDaTru
 
         private void TxtQuantidade_Leave(object sender, EventArgs e)
         {
-            negEstCalculo = new NegEstCalculo();
             validador = new Validador();
             try
             {
@@ -230,7 +227,7 @@ namespace TruDaTru
 
                 qtdProduto = int.Parse(TxtQuantidade.Text.Trim());
                 vlrProduto = decimal.Parse(TxtValor.Text.Trim());
-                TxtValorTotal.Text = negEstCalculo.ValorTotal(qtdProduto, vlrProduto).ToString("#,##0.00");
+                TxtValorTotal.Text = NegEstCalculo.ValorTotal(qtdProduto, vlrProduto).ToString("#,##0.00");
             }
             catch (Exception ex)
             {

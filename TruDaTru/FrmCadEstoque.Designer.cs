@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MktDataCadastro = new System.Windows.Forms.MaskedTextBox();
@@ -62,7 +63,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtPesquisa = new System.Windows.Forms.TextBox();
+            this.Lblinfo = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnCalc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProduto)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblCompetencia
@@ -77,7 +82,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 54);
+            this.label2.Location = new System.Drawing.Point(13, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 1;
@@ -85,7 +90,7 @@
             // 
             // MktDataCadastro
             // 
-            this.MktDataCadastro.Location = new System.Drawing.Point(13, 70);
+            this.MktDataCadastro.Location = new System.Drawing.Point(13, 51);
             this.MktDataCadastro.Mask = "00/00/0000";
             this.MktDataCadastro.Name = "MktDataCadastro";
             this.MktDataCadastro.Size = new System.Drawing.Size(82, 20);
@@ -98,7 +103,7 @@
             this.CbxProduto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CbxProduto.DisplayMember = "Produto_Marca";
             this.CbxProduto.FormattingEnabled = true;
-            this.CbxProduto.Location = new System.Drawing.Point(101, 70);
+            this.CbxProduto.Location = new System.Drawing.Point(101, 51);
             this.CbxProduto.Name = "CbxProduto";
             this.CbxProduto.Size = new System.Drawing.Size(347, 21);
             this.CbxProduto.TabIndex = 3;
@@ -108,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(98, 54);
+            this.label3.Location = new System.Drawing.Point(98, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 4;
@@ -122,7 +127,7 @@
             this.CbxTipo.Items.AddRange(new object[] {
             "Entrada",
             "Saída"});
-            this.CbxTipo.Location = new System.Drawing.Point(454, 70);
+            this.CbxTipo.Location = new System.Drawing.Point(454, 51);
             this.CbxTipo.Name = "CbxTipo";
             this.CbxTipo.Size = new System.Drawing.Size(93, 21);
             this.CbxTipo.TabIndex = 5;
@@ -130,7 +135,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(451, 54);
+            this.label4.Location = new System.Drawing.Point(451, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 6;
@@ -180,7 +185,7 @@
             // 
             // BtnGravar
             // 
-            this.BtnGravar.Location = new System.Drawing.Point(566, 44);
+            this.BtnGravar.Location = new System.Drawing.Point(566, 25);
             this.BtnGravar.Name = "BtnGravar";
             this.BtnGravar.Size = new System.Drawing.Size(75, 23);
             this.BtnGravar.TabIndex = 11;
@@ -191,7 +196,7 @@
             // BtnAlterar
             // 
             this.BtnAlterar.Enabled = false;
-            this.BtnAlterar.Location = new System.Drawing.Point(566, 73);
+            this.BtnAlterar.Location = new System.Drawing.Point(566, 54);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
             this.BtnAlterar.TabIndex = 11;
@@ -202,7 +207,7 @@
             // BtnExcluir
             // 
             this.BtnExcluir.Enabled = false;
-            this.BtnExcluir.Location = new System.Drawing.Point(566, 102);
+            this.BtnExcluir.Location = new System.Drawing.Point(566, 83);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
             this.BtnExcluir.TabIndex = 11;
@@ -310,6 +315,10 @@
             // Qtd_Produto
             // 
             this.Qtd_Produto.DataPropertyName = "Qtd_Produto";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N0";
+            dataGridViewCellStyle10.NullValue = null;
+            this.Qtd_Produto.DefaultCellStyle = dataGridViewCellStyle10;
             this.Qtd_Produto.HeaderText = "Qtd Produto";
             this.Qtd_Produto.Name = "Qtd_Produto";
             this.Qtd_Produto.ReadOnly = true;
@@ -317,10 +326,10 @@
             // Valor_Unitario
             // 
             this.Valor_Unitario.DataPropertyName = "Valor_Unitario";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle11;
             this.Valor_Unitario.HeaderText = "Valor Unitário";
             this.Valor_Unitario.Name = "Valor_Unitario";
             this.Valor_Unitario.ReadOnly = true;
@@ -328,10 +337,10 @@
             // Valor_Total
             // 
             this.Valor_Total.DataPropertyName = "Valor_Total";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle12;
             this.Valor_Total.HeaderText = "Valor Total";
             this.Valor_Total.Name = "Valor_Total";
             this.Valor_Total.ReadOnly = true;
@@ -380,17 +389,49 @@
             this.TxtPesquisa.Size = new System.Drawing.Size(628, 20);
             this.TxtPesquisa.TabIndex = 17;
             // 
+            // Lblinfo
+            // 
+            this.Lblinfo.AutoSize = true;
+            this.Lblinfo.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lblinfo.Location = new System.Drawing.Point(6, 16);
+            this.Lblinfo.Name = "Lblinfo";
+            this.Lblinfo.Size = new System.Drawing.Size(28, 14);
+            this.Lblinfo.TabIndex = 18;
+            this.Lblinfo.Text = "...";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Lblinfo);
+            this.groupBox1.Location = new System.Drawing.Point(250, 78);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(297, 73);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informações";
+            // 
+            // BtnCalc
+            // 
+            this.BtnCalc.Location = new System.Drawing.Point(566, 112);
+            this.BtnCalc.Name = "BtnCalc";
+            this.BtnCalc.Size = new System.Drawing.Size(75, 23);
+            this.BtnCalc.TabIndex = 11;
+            this.BtnCalc.Text = "&Calculadora";
+            this.BtnCalc.UseVisualStyleBackColor = true;
+            this.BtnCalc.Click += new System.EventHandler(this.BtnCalc_Click);
+            // 
             // FrmCadEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TxtPesquisa);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtValorTotal);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.DgvListaProduto);
+            this.Controls.Add(this.BtnCalc);
             this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.BtnGravar);
@@ -415,6 +456,8 @@
             this.Text = "Cadastro de Estoque";
             this.Load += new System.EventHandler(this.FrmCadEstoque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProduto)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,5 +497,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtd_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Unitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Total;
+        private System.Windows.Forms.Label Lblinfo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button BtnCalc;
     }
 }

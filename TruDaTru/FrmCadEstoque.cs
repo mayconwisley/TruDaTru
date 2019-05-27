@@ -4,6 +4,7 @@ using Negocio.Competencia;
 using Negocio.Estoque;
 using Negocio.Produto;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace TruDaTru
@@ -23,7 +24,7 @@ namespace TruDaTru
         NegEstAtualizar negEstAtualizar;
         NegEstExcluir negEstExcluir;
         NegEstConsulta negEstConsulta;
-        
+
         NegCompConsulta negCompConsulta;
 
         NegProdConsulta negProdConsulta;
@@ -33,17 +34,42 @@ namespace TruDaTru
 
         #region Variaveis
         char tipoES;
-        int qtdProduto = 0, prodId = 0, CompId = 0, estId = 0, marcId = 0;
+        int qtdProduto = 0, prodId = 0, compId = 0, estId = 0, marcId = 0;
         decimal vlrProduto = 0;
         DateTime dtCompetencia;
         #endregion
+
+        private void Informacao(int intOpc)
+        {
+            decimal decValorEntrada = 0, decValorSaida = 0, decValorTotal = 0;
+
+            negEstConsulta = new NegEstConsulta();
+            try
+            {
+                decValorEntrada = NegEstCalculo.TotalEntradaCompetencia(compId);
+                decValorSaida = NegEstCalculo.TotalSaidaCompetencia(compId);
+
+                decValorTotal = decValorEntrada - decValorSaida;
+
+                Lblinfo.Text = "Total Entrada: " + decValorEntrada.ToString("#,##0.00") + "\n" +
+                               "Total Saída..: " + decValorSaida.ToString("#,##0.00") + "\n" +
+                               "Total Geral..: " + decValorTotal.ToString("#,##0.00");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
         private void CompetenciaAtiva()
         {
             negCompConsulta = new NegCompConsulta();
             try
             {
                 dtCompetencia = negCompConsulta.CompetenciaAtiva();
-                CompId = negCompConsulta.Id(dtCompetencia);
+                compId = negCompConsulta.Id(dtCompetencia);
                 LblCompetencia.Text = "Competência: " + dtCompetencia.ToString("MM/yyyy");
                 MktDataCadastro.Text = DateTime.Now.ToString("dd/MM/yyyy");
             }
@@ -126,7 +152,7 @@ namespace TruDaTru
                 modEstoque.QtdProduto = int.Parse(TxtQuantidade.Text.Trim());
                 modEstoque.ValorProduto = decimal.Parse(TxtValor.Text);
                 modEstoque.Competencia = new ModCompetencia();
-                modEstoque.Competencia.Id = CompId;
+                modEstoque.Competencia.Id = compId;
                 modEstoque.Produto = new ModProduto();
                 modEstoque.Produto.Id = prodId;
 
@@ -145,7 +171,8 @@ namespace TruDaTru
                         break;
                 }
                 BotoesReset();
-                ListaEstoqueCompetencia(CompId);
+                ListaEstoqueCompetencia(compId);
+                Informacao(compId);
             }
             catch (Exception ex)
             {
@@ -243,6 +270,11 @@ namespace TruDaTru
             }
         }
 
+        private void BtnCalc_Click(object sender, EventArgs e)
+        {
+            Process.Start("calc");
+        }
+
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             Interacao(ModInteracao.Interacao.Excluir);
@@ -254,7 +286,7 @@ namespace TruDaTru
             {
                 estId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Estoque"].Value.ToString());
                 prodId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Produto"].Value.ToString());
-                CompId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Competecia"].Value.ToString());
+                compId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Competecia"].Value.ToString());
                 marcId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Marca"].Value.ToString());
 
                 MktDataCadastro.Text = DgvListaProduto.Rows[e.RowIndex].Cells["Data_Cadastro"].Value.ToString();
@@ -292,7 +324,8 @@ namespace TruDaTru
         {
             CompetenciaAtiva();
             ListaProdutoAtivo();
-            ListaEstoqueCompetencia(CompId);
+            ListaEstoqueCompetencia(compId);
+            Informacao(compId);
             CbxTipo.SelectedIndex = 0;
         }
     }

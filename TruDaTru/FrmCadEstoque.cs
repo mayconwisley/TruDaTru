@@ -37,6 +37,7 @@ namespace TruDaTru
         int qtdProduto = 0, prodId = 0, compId = 0, estId = 0, marcId = 0;
         decimal vlrProduto = 0;
         DateTime dtCompetencia;
+        string strPesquisa;
         #endregion
 
         private void Informacao(int intOpc)
@@ -93,12 +94,14 @@ namespace TruDaTru
             }
         }
 
-        private void ListaEstoqueCompetencia(int compId)
+        private void ListaEstoqueCompetencia(int compId, string pesquisa)
         {
             negEstConsulta = new NegEstConsulta();
+
             try
             {
-                DgvListaProduto.DataSource = negEstConsulta.ListaEstoqueCompetencia(compId);
+                strPesquisa = "%" + pesquisa + "%";
+                DgvListaProduto.DataSource = negEstConsulta.ListaEstoqueCompetencia(compId, strPesquisa);
             }
             catch (Exception ex)
             {
@@ -171,7 +174,7 @@ namespace TruDaTru
                         break;
                 }
                 BotoesReset();
-                ListaEstoqueCompetencia(compId);
+                ListaEstoqueCompetencia(compId, TxtPesquisa.Text.Trim());
                 Informacao(compId);
             }
             catch (Exception ex)
@@ -275,6 +278,11 @@ namespace TruDaTru
             Process.Start("calc");
         }
 
+        private void TxtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            ListaEstoqueCompetencia(compId, TxtPesquisa.Text.Trim());
+        }
+
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             Interacao(ModInteracao.Interacao.Excluir);
@@ -282,21 +290,29 @@ namespace TruDaTru
 
         private void DgvListaProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            string strTipoES;
+
             try
             {
                 estId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Estoque"].Value.ToString());
                 prodId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Produto"].Value.ToString());
                 compId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Competecia"].Value.ToString());
                 marcId = int.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Id_Marca"].Value.ToString());
-
                 MktDataCadastro.Text = DgvListaProduto.Rows[e.RowIndex].Cells["Data_Cadastro"].Value.ToString();
-                tipoES = char.Parse(DgvListaProduto.Rows[e.RowIndex].Cells["Tipo_Es"].Value.ToString());
-
+                strTipoES = DgvListaProduto.Rows[e.RowIndex].Cells["Tipo_Es"].Value.ToString();
                 TxtQuantidade.Text = DgvListaProduto.Rows[e.RowIndex].Cells["Qtd_Produto"].Value.ToString();
                 TxtValor.Text = DgvListaProduto.Rows[e.RowIndex].Cells["Valor_Unitario"].Value.ToString();
                 TxtValorTotal.Text = DgvListaProduto.Rows[e.RowIndex].Cells["Valor_Total"].Value.ToString();
 
                 CbxProduto.SelectedValue = prodId;
+                if (strTipoES == "Entrada")
+                {
+                    tipoES = 'E';
+                }
+                else
+                {
+                    tipoES = 'S';
+                }
 
                 BotoesAlterarExcluir();
 
@@ -324,7 +340,7 @@ namespace TruDaTru
         {
             CompetenciaAtiva();
             ListaProdutoAtivo();
-            ListaEstoqueCompetencia(compId);
+            ListaEstoqueCompetencia(compId, TxtPesquisa.Text.Trim());
             Informacao(compId);
             CbxTipo.SelectedIndex = 0;
         }

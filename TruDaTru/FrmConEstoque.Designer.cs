@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CbProd = new System.Windows.Forms.CheckBox();
+            this.CbMarc = new System.Windows.Forms.CheckBox();
             this.CbxProduto = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@
             this.Qtd_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor_Unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor_Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CbMarc = new System.Windows.Forms.CheckBox();
-            this.CbProd = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProduto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -89,6 +89,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opções de consulta";
+            // 
+            // CbProd
+            // 
+            this.CbProd.AutoSize = true;
+            this.CbProd.Location = new System.Drawing.Point(13, 126);
+            this.CbProd.Name = "CbProd";
+            this.CbProd.Size = new System.Drawing.Size(15, 14);
+            this.CbProd.TabIndex = 10;
+            this.CbProd.UseVisualStyleBackColor = true;
+            this.CbProd.CheckedChanged += new System.EventHandler(this.CbProd_CheckedChanged);
+            // 
+            // CbMarc
+            // 
+            this.CbMarc.AutoSize = true;
+            this.CbMarc.Location = new System.Drawing.Point(13, 86);
+            this.CbMarc.Name = "CbMarc";
+            this.CbMarc.Size = new System.Drawing.Size(15, 14);
+            this.CbMarc.TabIndex = 10;
+            this.CbMarc.UseVisualStyleBackColor = true;
+            this.CbMarc.CheckedChanged += new System.EventHandler(this.CbMarc_CheckedChanged);
             // 
             // CbxProduto
             // 
@@ -190,9 +210,9 @@
             this.RbPeriodo.AutoSize = true;
             this.RbPeriodo.Location = new System.Drawing.Point(106, 21);
             this.RbPeriodo.Name = "RbPeriodo";
-            this.RbPeriodo.Size = new System.Drawing.Size(61, 17);
+            this.RbPeriodo.Size = new System.Drawing.Size(63, 17);
             this.RbPeriodo.TabIndex = 2;
-            this.RbPeriodo.Text = "Periodo";
+            this.RbPeriodo.Text = "Período";
             this.RbPeriodo.UseVisualStyleBackColor = true;
             this.RbPeriodo.CheckedChanged += new System.EventHandler(this.RbPeriodo_CheckedChanged);
             // 
@@ -312,9 +332,9 @@
             // Competencia
             // 
             this.Competencia.DataPropertyName = "Competencia";
-            dataGridViewCellStyle13.Format = "MM/yyyy";
-            this.Competencia.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Competencia.HeaderText = "Competencia";
+            dataGridViewCellStyle1.Format = "MM/yyyy";
+            this.Competencia.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Competencia.HeaderText = "Competência";
             this.Competencia.Name = "Competencia";
             this.Competencia.ReadOnly = true;
             // 
@@ -349,10 +369,10 @@
             // Qtd_Produto
             // 
             this.Qtd_Produto.DataPropertyName = "Qtd_Produto";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "N0";
-            dataGridViewCellStyle14.NullValue = null;
-            this.Qtd_Produto.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Qtd_Produto.DefaultCellStyle = dataGridViewCellStyle2;
             this.Qtd_Produto.HeaderText = "Qtd Produto";
             this.Qtd_Produto.Name = "Qtd_Produto";
             this.Qtd_Produto.ReadOnly = true;
@@ -360,10 +380,10 @@
             // Valor_Unitario
             // 
             this.Valor_Unitario.DataPropertyName = "Valor_Unitario";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle3;
             this.Valor_Unitario.HeaderText = "Valor Unitário";
             this.Valor_Unitario.Name = "Valor_Unitario";
             this.Valor_Unitario.ReadOnly = true;
@@ -371,33 +391,13 @@
             // Valor_Total
             // 
             this.Valor_Total.DataPropertyName = "Valor_Total";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle4;
             this.Valor_Total.HeaderText = "Valor Total";
             this.Valor_Total.Name = "Valor_Total";
             this.Valor_Total.ReadOnly = true;
-            // 
-            // CbMarc
-            // 
-            this.CbMarc.AutoSize = true;
-            this.CbMarc.Location = new System.Drawing.Point(13, 86);
-            this.CbMarc.Name = "CbMarc";
-            this.CbMarc.Size = new System.Drawing.Size(15, 14);
-            this.CbMarc.TabIndex = 10;
-            this.CbMarc.UseVisualStyleBackColor = true;
-            this.CbMarc.CheckedChanged += new System.EventHandler(this.CbMarc_CheckedChanged);
-            // 
-            // CbProd
-            // 
-            this.CbProd.AutoSize = true;
-            this.CbProd.Location = new System.Drawing.Point(13, 126);
-            this.CbProd.Name = "CbProd";
-            this.CbProd.Size = new System.Drawing.Size(15, 14);
-            this.CbProd.TabIndex = 10;
-            this.CbProd.UseVisualStyleBackColor = true;
-            this.CbProd.CheckedChanged += new System.EventHandler(this.CbProd_CheckedChanged);
             // 
             // FrmConEstoque
             // 
@@ -445,6 +445,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label Lblinfo;
         private System.Windows.Forms.Button BtnCalc;
+        private System.Windows.Forms.CheckBox CbMarc;
+        private System.Windows.Forms.CheckBox CbProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Estoque;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Competecia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Marca;
@@ -457,7 +459,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtd_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Unitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Total;
-        private System.Windows.Forms.CheckBox CbMarc;
-        private System.Windows.Forms.CheckBox CbProd;
     }
 }

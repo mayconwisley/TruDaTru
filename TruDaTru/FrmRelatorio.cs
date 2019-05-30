@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TruDaTru
 {
-    public partial class FrmRelMarca : Form
+    public partial class FrmRelatorio : Form
     {
-        public FrmRelMarca()
+        public FrmRelatorio()
         {
             InitializeComponent();
         }

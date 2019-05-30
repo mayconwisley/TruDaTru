@@ -137,6 +137,18 @@
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelEstoque.resx">
+      <DependentUpon>FrmRelEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelMarca.resx">
+      <DependentUpon>FrmRelMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelProduto.resx">
+      <DependentUpon>FrmRelProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelVisualizar.resx">
+      <DependentUpon>FrmRelVisualizar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

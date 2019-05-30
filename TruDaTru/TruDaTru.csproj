@@ -111,23 +111,11 @@
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRelEstoque.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRelEstoque.Designer.cs">
-      <DependentUpon>FrmRelEstoque.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmRelatorio.Designer.cs">
       <DependentUpon>FrmRelatorio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRelProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRelProduto.Designer.cs">
-      <DependentUpon>FrmRelProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRelVisualizar.cs">
       <SubType>Form</SubType>
@@ -156,14 +144,8 @@
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRelEstoque.resx">
-      <DependentUpon>FrmRelEstoque.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmRelatorio.resx">
       <DependentUpon>FrmRelatorio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRelProduto.resx">
-      <DependentUpon>FrmRelProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRelVisualizar.resx">
       <DependentUpon>FrmRelVisualizar.cs</DependentUpon>
@@ -178,6 +160,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Relatorios\RptEstoque.rdlc" />
+    <EmbeddedResource Include="Relatorios\RptMarca.rdlc" />
+    <EmbeddedResource Include="Relatorios\RptProduto.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -202,9 +187,7 @@
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Relatorios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

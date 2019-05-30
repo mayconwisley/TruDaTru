@@ -37,9 +37,7 @@
             this.MenuEstCada = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuEstCons = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRelatorio = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelMarc = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelProd = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelEsto = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRelRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MenuPrincipal.SuspendLayout();
@@ -115,30 +113,16 @@
             // MenuRelatorio
             // 
             this.MenuRelatorio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuRelMarc,
-            this.MenuRelProd,
-            this.MenuRelEsto});
+            this.MenuRelRelatorio});
             this.MenuRelatorio.Name = "MenuRelatorio";
             this.MenuRelatorio.Size = new System.Drawing.Size(66, 20);
             this.MenuRelatorio.Text = "Relatório";
             // 
-            // MenuRelMarc
+            // MenuRelRelatorio
             // 
-            this.MenuRelMarc.Name = "MenuRelMarc";
-            this.MenuRelMarc.Size = new System.Drawing.Size(180, 22);
-            this.MenuRelMarc.Text = "Marcas";
-            // 
-            // MenuRelProd
-            // 
-            this.MenuRelProd.Name = "MenuRelProd";
-            this.MenuRelProd.Size = new System.Drawing.Size(180, 22);
-            this.MenuRelProd.Text = "Produtos";
-            // 
-            // MenuRelEsto
-            // 
-            this.MenuRelEsto.Name = "MenuRelEsto";
-            this.MenuRelEsto.Size = new System.Drawing.Size(180, 22);
-            this.MenuRelEsto.Text = "Estoque";
+            this.MenuRelRelatorio.Name = "MenuRelRelatorio";
+            this.MenuRelRelatorio.Size = new System.Drawing.Size(180, 22);
+            this.MenuRelRelatorio.Text = "Relatório";
             // 
             // MenuSair
             // 
@@ -185,9 +169,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuEstCada;
         private System.Windows.Forms.ToolStripMenuItem MenuEstCons;
         private System.Windows.Forms.ToolStripMenuItem MenuRelatorio;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelMarc;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelProd;
-        private System.Windows.Forms.ToolStripMenuItem MenuRelEsto;
+        private System.Windows.Forms.ToolStripMenuItem MenuRelRelatorio;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem MenuSair;
     }

@@ -39,8 +39,10 @@
             this.MenuRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRelRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
+            this.LblStaInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuPrincipal.SuspendLayout();
+            this.StatusPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuPrincipal
@@ -131,20 +133,28 @@
             this.MenuSair.Text = "Sair";
             this.MenuSair.Click += new System.EventHandler(this.MenuSair_Click);
             // 
-            // statusStrip1
+            // StatusPrincipal
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 680);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1196, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
+            this.StatusPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LblStaInfo});
+            this.StatusPrincipal.Location = new System.Drawing.Point(0, 680);
+            this.StatusPrincipal.Name = "StatusPrincipal";
+            this.StatusPrincipal.Size = new System.Drawing.Size(1196, 22);
+            this.StatusPrincipal.TabIndex = 2;
+            this.StatusPrincipal.Text = "statusStrip1";
+            // 
+            // LblStaInfo
+            // 
+            this.LblStaInfo.Name = "LblStaInfo";
+            this.LblStaInfo.Size = new System.Drawing.Size(248, 17);
+            this.LblStaInfo.Text = "Versão 1.0 - Desenvolvido por: Maycon Wisley";
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1196, 702);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.StatusPrincipal);
             this.Controls.Add(this.MenuPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MenuPrincipal;
@@ -153,6 +163,8 @@
             this.Text = "Tru da Tru";
             this.MenuPrincipal.ResumeLayout(false);
             this.MenuPrincipal.PerformLayout();
+            this.StatusPrincipal.ResumeLayout(false);
+            this.StatusPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,8 +182,9 @@
         private System.Windows.Forms.ToolStripMenuItem MenuEstCons;
         private System.Windows.Forms.ToolStripMenuItem MenuRelatorio;
         private System.Windows.Forms.ToolStripMenuItem MenuRelRelatorio;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip StatusPrincipal;
         private System.Windows.Forms.ToolStripMenuItem MenuSair;
+        private System.Windows.Forms.ToolStripStatusLabel LblStaInfo;
     }
 }
 

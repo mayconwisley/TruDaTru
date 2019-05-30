@@ -93,6 +93,30 @@
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRelEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelEstoque.Designer.cs">
+      <DependentUpon>FrmRelEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelMarca.Designer.cs">
+      <DependentUpon>FrmRelMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelProduto.Designer.cs">
+      <DependentUpon>FrmRelProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelVisualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelVisualizar.Designer.cs">
+      <DependentUpon>FrmRelVisualizar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCadCompetencia.resx">

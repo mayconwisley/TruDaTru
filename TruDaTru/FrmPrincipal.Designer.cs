@@ -120,24 +120,24 @@
             this.MenuRelEsto});
             this.MenuRelatorio.Name = "MenuRelatorio";
             this.MenuRelatorio.Size = new System.Drawing.Size(66, 20);
-            this.MenuRelatorio.Text = "Relatorio";
+            this.MenuRelatorio.Text = "Relatório";
             // 
             // MenuRelMarc
             // 
             this.MenuRelMarc.Name = "MenuRelMarc";
-            this.MenuRelMarc.Size = new System.Drawing.Size(122, 22);
+            this.MenuRelMarc.Size = new System.Drawing.Size(180, 22);
             this.MenuRelMarc.Text = "Marcas";
             // 
             // MenuRelProd
             // 
             this.MenuRelProd.Name = "MenuRelProd";
-            this.MenuRelProd.Size = new System.Drawing.Size(122, 22);
+            this.MenuRelProd.Size = new System.Drawing.Size(180, 22);
             this.MenuRelProd.Text = "Produtos";
             // 
             // MenuRelEsto
             // 
             this.MenuRelEsto.Name = "MenuRelEsto";
-            this.MenuRelEsto.Size = new System.Drawing.Size(122, 22);
+            this.MenuRelEsto.Size = new System.Drawing.Size(180, 22);
             this.MenuRelEsto.Text = "Estoque";
             // 
             // MenuSair

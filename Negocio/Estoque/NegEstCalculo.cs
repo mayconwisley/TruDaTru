@@ -58,7 +58,6 @@ namespace Negocio.Estoque
             strSQL.Append("WHERE VW.Id_Competecia = @Id_Competecia AND VW.Tipo_Es = 'E' AND " +
                           "VW.Id_Marca = @Id_Marca");
 
-
             try
             {
                 crud.LimparParametros();

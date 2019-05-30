@@ -57,14 +57,7 @@ namespace Negocio
                     posicao = "1234567890".IndexOf(x);
                     if (posicao >= 0)
                     {
-                        if (strValor.IndexOf(",") < 0)
-                        {
-                            strValor = strValor + x;
-                        }
-                        else
-                        {
-                            strValor = strValor + x;
-                        }
+                        strValor = strValor + x;
                     }
                 }
                 return strValor;

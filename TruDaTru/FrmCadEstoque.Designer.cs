@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MktDataCadastro = new System.Windows.Forms.MaskedTextBox();
@@ -315,10 +315,10 @@
             // Qtd_Produto
             // 
             this.Qtd_Produto.DataPropertyName = "Qtd_Produto";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N0";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Qtd_Produto.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Qtd_Produto.DefaultCellStyle = dataGridViewCellStyle4;
             this.Qtd_Produto.HeaderText = "Qtd Produto";
             this.Qtd_Produto.Name = "Qtd_Produto";
             this.Qtd_Produto.ReadOnly = true;
@@ -326,10 +326,10 @@
             // Valor_Unitario
             // 
             this.Valor_Unitario.DataPropertyName = "Valor_Unitario";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N2";
-            dataGridViewCellStyle11.NullValue = null;
-            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Valor_Unitario.DefaultCellStyle = dataGridViewCellStyle5;
             this.Valor_Unitario.HeaderText = "Valor Unitário";
             this.Valor_Unitario.Name = "Valor_Unitario";
             this.Valor_Unitario.ReadOnly = true;
@@ -337,10 +337,10 @@
             // Valor_Total
             // 
             this.Valor_Total.DataPropertyName = "Valor_Total";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Valor_Total.DefaultCellStyle = dataGridViewCellStyle6;
             this.Valor_Total.HeaderText = "Valor Total";
             this.Valor_Total.Name = "Valor_Total";
             this.Valor_Total.ReadOnly = true;
@@ -378,9 +378,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(13, 141);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.Size = new System.Drawing.Size(144, 13);
             this.label8.TabIndex = 16;
-            this.label8.Text = "Pesquisa";
+            this.label8.Text = "Pesquisa - Produto ou Marca";
             // 
             // TxtPesquisa
             // 
@@ -388,6 +388,7 @@
             this.TxtPesquisa.Name = "TxtPesquisa";
             this.TxtPesquisa.Size = new System.Drawing.Size(628, 20);
             this.TxtPesquisa.TabIndex = 17;
+            this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
             // 
             // Lblinfo
             // 

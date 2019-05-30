@@ -326,7 +326,7 @@ namespace TruDaTru
                         }
                         else if (CbProd.Checked == false && CbMarc.Checked == false)
                         {
-                            DgvListaProduto.DataSource = negEstConsulta.ListaEstoqueCompetencia(compId);
+                            DgvListaProduto.DataSource = negEstConsulta.ListaEstoqueCompetencia(compId,"%%");
                         }
                         break;
                     case 2: //Periodos

@@ -33,7 +33,7 @@ namespace Negocio.Estoque
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable ListaEstoqueCompetencia(int compId)
+        public DataTable ListaEstoqueCompetencia(int compId, string pesquisa)
         {
             strSQL = new StringBuilder();
             crud = new BDCrud();
@@ -43,7 +43,8 @@ namespace Negocio.Estoque
                           "VW.Competencia, VW.Marca, VW.Produto, IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES, VW.Data_Cadastro, " +
                           "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
             strSQL.Append("FROM VW_Estoque VW ");
-            strSQL.Append("WHERE VW.Id_Competecia = @Id_Competecia ");
+            strSQL.Append("WHERE (VW.Id_Competecia = @Id_Competecia) AND " +
+                          "(UPPER(VW.Produto) LIKE UPPER(@pesquisa) OR UPPER(VW.Marca) LIKE UPPER(@pesquisa)) ");
             strSQL.Append("ORDER BY VW.Data_Cadastro DESC, " +
                           "UPPER(VW.Produto) ASC");
 
@@ -52,6 +53,7 @@ namespace Negocio.Estoque
             {
                 crud.LimparParametros();
                 crud.AdicionarParametro("Id_Competecia", compId);
+                crud.AdicionarParametro("pesquisa", pesquisa);
                 return lista = crud.Consulta(CommandType.Text, strSQL.ToString());
             }
             catch (Exception ex)
@@ -140,7 +142,6 @@ namespace Negocio.Estoque
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable ListaEstoquePeriodoMarc(DateTime dataInicio, DateTime dataFinal, int marcId)
         {
             strSQL = new StringBuilder();
@@ -169,7 +170,6 @@ namespace Negocio.Estoque
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable ListaEstoquePeriodoProd(DateTime dataInicio, DateTime dataFinal, int prodId)
         {
             strSQL = new StringBuilder();
@@ -259,7 +259,7 @@ namespace Negocio.Estoque
                           "VW.Competencia, VW.Marca, VW.Produto, IIF(VW.Tipo_Es = 'E', 'Entrada','Saída') AS Tipo_ES, VW.Data_Cadastro, " +
                           "VW.Qtd_Produto, VW.Valor_Unitario, VW.Valor_Total ");
             strSQL.Append("FROM VW_Estoque VW ");
-            strSQL.Append("WHERE UPPER(VW.Produto) LIKE UPPER(@pesquisa) ");
+            strSQL.Append("WHERE UPPER(VW.Produto) LIKE UPPER(@pesquisa) OR UPPER(VW.Marca) LIKE UPPER(@pesquisa) ");
             strSQL.Append("ORDER BY VW.Data_Cadastro DESC");
 
             try

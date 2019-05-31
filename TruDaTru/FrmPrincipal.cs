@@ -15,6 +15,7 @@ namespace TruDaTru
         FrmCadMarca cadMarca;
         FrmCadProduto cadProduto;
         FrmConEstoque conEstoque;
+        FrmRelatorio relatorio;
         bool aberto;
 
         private void MenuCadComp_Click(object sender, EventArgs e)
@@ -114,6 +115,25 @@ namespace TruDaTru
             if (aberto)
             {
                 conEstoque.Show();
+            }
+        }
+
+        private void MenuRelRelatorio_Click(object sender, EventArgs e)
+        {
+            aberto = true;
+            foreach (Form item in Application.OpenForms)
+            {
+                relatorio = new FrmRelatorio();
+                relatorio.MdiParent = this;
+                if (item is FrmRelatorio)
+                {
+                    item.Focus();
+                    aberto = false;
+                }
+            }
+            if (aberto)
+            {
+                relatorio.Show();
             }
         }
     }

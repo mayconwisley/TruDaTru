@@ -125,6 +125,7 @@
             this.MenuRelRelatorio.Name = "MenuRelRelatorio";
             this.MenuRelRelatorio.Size = new System.Drawing.Size(180, 22);
             this.MenuRelRelatorio.Text = "Relatório";
+            this.MenuRelRelatorio.Click += new System.EventHandler(this.MenuRelRelatorio_Click);
             // 
             // MenuSair
             // 

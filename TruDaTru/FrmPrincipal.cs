@@ -120,6 +120,8 @@ namespace TruDaTru
 
         private void MenuRelRelatorio_Click(object sender, EventArgs e)
         {
+
+            MessageBox.Show("Relatórios não estão pronto até o momento...");
             aberto = true;
             foreach (Form item in Application.OpenForms)
             {

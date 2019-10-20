@@ -28,77 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.GbOpcoes = new System.Windows.Forms.GroupBox();
+            this.CbMarca = new System.Windows.Forms.CheckBox();
+            this.CbPeriodo = new System.Windows.Forms.CheckBox();
+            this.RbMarca = new System.Windows.Forms.RadioButton();
+            this.RbProduto = new System.Windows.Forms.RadioButton();
+            this.RbEstoque = new System.Windows.Forms.RadioButton();
+            this.CbxMarca = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.MktDataInicial = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.MktDataFinal = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.CbxProduto = new System.Windows.Forms.ComboBox();
+            this.BtnGerar = new System.Windows.Forms.Button();
+            this.GbOpcoes.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // GbOpcoes
             // 
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(220, 74);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Opção";
+            this.GbOpcoes.Controls.Add(this.CbMarca);
+            this.GbOpcoes.Controls.Add(this.CbPeriodo);
+            this.GbOpcoes.Controls.Add(this.RbMarca);
+            this.GbOpcoes.Controls.Add(this.RbProduto);
+            this.GbOpcoes.Controls.Add(this.RbEstoque);
+            this.GbOpcoes.Location = new System.Drawing.Point(15, 13);
+            this.GbOpcoes.Name = "GbOpcoes";
+            this.GbOpcoes.Size = new System.Drawing.Size(220, 74);
+            this.GbOpcoes.TabIndex = 0;
+            this.GbOpcoes.TabStop = false;
+            this.GbOpcoes.Text = "Opção";
             // 
-            // radioButton1
+            // CbMarca
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(64, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Estoque";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.CbMarca.AutoSize = true;
+            this.CbMarca.Location = new System.Drawing.Point(76, 42);
+            this.CbMarca.Name = "CbMarca";
+            this.CbMarca.Size = new System.Drawing.Size(56, 17);
+            this.CbMarca.TabIndex = 7;
+            this.CbMarca.Text = "Marca";
+            this.CbMarca.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // CbPeriodo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(76, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(62, 17);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.Text = "Produto";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.CbPeriodo.AutoSize = true;
+            this.CbPeriodo.Location = new System.Drawing.Point(6, 42);
+            this.CbPeriodo.Name = "CbPeriodo";
+            this.CbPeriodo.Size = new System.Drawing.Size(64, 17);
+            this.CbPeriodo.TabIndex = 6;
+            this.CbPeriodo.Text = "Período";
+            this.CbPeriodo.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // RbMarca
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(144, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(55, 17);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.Text = "Marca";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.RbMarca.AutoSize = true;
+            this.RbMarca.Location = new System.Drawing.Point(144, 19);
+            this.RbMarca.Name = "RbMarca";
+            this.RbMarca.Size = new System.Drawing.Size(55, 17);
+            this.RbMarca.TabIndex = 0;
+            this.RbMarca.Text = "Marca";
+            this.RbMarca.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // RbProduto
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(15, 145);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(300, 21);
-            this.comboBox1.TabIndex = 1;
+            this.RbProduto.AutoSize = true;
+            this.RbProduto.Location = new System.Drawing.Point(76, 19);
+            this.RbProduto.Name = "RbProduto";
+            this.RbProduto.Size = new System.Drawing.Size(62, 17);
+            this.RbProduto.TabIndex = 0;
+            this.RbProduto.Text = "Produto";
+            this.RbProduto.UseVisualStyleBackColor = true;
+            // 
+            // RbEstoque
+            // 
+            this.RbEstoque.AutoSize = true;
+            this.RbEstoque.Checked = true;
+            this.RbEstoque.Location = new System.Drawing.Point(6, 19);
+            this.RbEstoque.Name = "RbEstoque";
+            this.RbEstoque.Size = new System.Drawing.Size(64, 17);
+            this.RbEstoque.TabIndex = 0;
+            this.RbEstoque.TabStop = true;
+            this.RbEstoque.Text = "Estoque";
+            this.RbEstoque.UseVisualStyleBackColor = true;
+            // 
+            // CbxMarca
+            // 
+            this.CbxMarca.DisplayMember = "Descricao";
+            this.CbxMarca.FormattingEnabled = true;
+            this.CbxMarca.Location = new System.Drawing.Point(15, 145);
+            this.CbxMarca.Name = "CbxMarca";
+            this.CbxMarca.Size = new System.Drawing.Size(300, 21);
+            this.CbxMarca.TabIndex = 1;
+            this.CbxMarca.ValueMember = "Id";
             // 
             // label1
             // 
@@ -118,14 +140,14 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Competência";
             // 
-            // maskedTextBox1
+            // MktDataInicial
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(15, 106);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(81, 20);
-            this.maskedTextBox1.TabIndex = 4;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.MktDataInicial.Location = new System.Drawing.Point(15, 106);
+            this.MktDataInicial.Mask = "00/00/0000";
+            this.MktDataInicial.Name = "MktDataInicial";
+            this.MktDataInicial.Size = new System.Drawing.Size(81, 20);
+            this.MktDataInicial.TabIndex = 4;
+            this.MktDataInicial.ValidatingType = typeof(System.DateTime);
             // 
             // label3
             // 
@@ -136,34 +158,14 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "a";
             // 
-            // maskedTextBox2
+            // MktDataFinal
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(121, 106);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(81, 20);
-            this.maskedTextBox2.TabIndex = 4;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 42);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(64, 17);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Período";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(76, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(56, 17);
-            this.checkBox2.TabIndex = 7;
-            this.checkBox2.Text = "Marca";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.MktDataFinal.Location = new System.Drawing.Point(121, 106);
+            this.MktDataFinal.Mask = "00/00/0000";
+            this.MktDataFinal.Name = "MktDataFinal";
+            this.MktDataFinal.Size = new System.Drawing.Size(81, 20);
+            this.MktDataFinal.TabIndex = 4;
+            this.MktDataFinal.ValidatingType = typeof(System.DateTime);
             // 
             // label4
             // 
@@ -174,38 +176,40 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Produto";
             // 
-            // comboBox2
+            // CbxProduto
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(15, 185);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(300, 21);
-            this.comboBox2.TabIndex = 7;
+            this.CbxProduto.DisplayMember = "Produto_Marca";
+            this.CbxProduto.FormattingEnabled = true;
+            this.CbxProduto.Location = new System.Drawing.Point(15, 185);
+            this.CbxProduto.Name = "CbxProduto";
+            this.CbxProduto.Size = new System.Drawing.Size(300, 21);
+            this.CbxProduto.TabIndex = 7;
+            this.CbxProduto.ValueMember = "Id";
             // 
-            // button1
+            // BtnGerar
             // 
-            this.button1.Location = new System.Drawing.Point(241, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Gerar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnGerar.Location = new System.Drawing.Point(241, 13);
+            this.BtnGerar.Name = "BtnGerar";
+            this.BtnGerar.Size = new System.Drawing.Size(74, 23);
+            this.BtnGerar.TabIndex = 8;
+            this.BtnGerar.Text = "Gerar";
+            this.BtnGerar.UseVisualStyleBackColor = true;
             // 
             // FrmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 218);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.BtnGerar);
+            this.Controls.Add(this.CbxProduto);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.MktDataFinal);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.MktDataInicial);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.CbxMarca);
+            this.Controls.Add(this.GbOpcoes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -214,8 +218,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatórios";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.FrmRelatorio_Load);
+            this.GbOpcoes.ResumeLayout(false);
+            this.GbOpcoes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,20 +228,20 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox GbOpcoes;
+        private System.Windows.Forms.RadioButton RbProduto;
+        private System.Windows.Forms.RadioButton RbEstoque;
+        private System.Windows.Forms.RadioButton RbMarca;
+        private System.Windows.Forms.ComboBox CbxMarca;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox MktDataInicial;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.MaskedTextBox MktDataFinal;
+        private System.Windows.Forms.CheckBox CbPeriodo;
+        private System.Windows.Forms.CheckBox CbMarca;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox CbxProduto;
+        private System.Windows.Forms.Button BtnGerar;
     }
 }

@@ -169,6 +169,12 @@ namespace TruDaTru
             }
         }
 
+        private void BtnGerar_Click(object sender, EventArgs e)
+        {
+            FrmRelVisualizar frmRelVisualizar = new FrmRelVisualizar();
+            frmRelVisualizar.Show();
+        }
+
         private void Verificacao()
         {
             if (RbCompetencia.Checked || RbPeriodo.Checked)

@@ -31,6 +31,7 @@
             this.GbOpcoes = new System.Windows.Forms.GroupBox();
             this.RbMarca = new System.Windows.Forms.RadioButton();
             this.RbProduto = new System.Windows.Forms.RadioButton();
+            this.RbPeriodo = new System.Windows.Forms.RadioButton();
             this.RbCompetencia = new System.Windows.Forms.RadioButton();
             this.CbxMarca = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CbxProduto = new System.Windows.Forms.ComboBox();
             this.BtnGerar = new System.Windows.Forms.Button();
-            this.RbPeriodo = new System.Windows.Forms.RadioButton();
             this.CbMarc = new System.Windows.Forms.CheckBox();
             this.CbProd = new System.Windows.Forms.CheckBox();
             this.GbOpcoes.SuspendLayout();
@@ -82,6 +82,17 @@
             this.RbProduto.UseVisualStyleBackColor = true;
             this.RbProduto.CheckedChanged += new System.EventHandler(this.RbProduto_CheckedChanged);
             // 
+            // RbPeriodo
+            // 
+            this.RbPeriodo.AutoSize = true;
+            this.RbPeriodo.Location = new System.Drawing.Point(99, 19);
+            this.RbPeriodo.Name = "RbPeriodo";
+            this.RbPeriodo.Size = new System.Drawing.Size(63, 17);
+            this.RbPeriodo.TabIndex = 0;
+            this.RbPeriodo.Text = "Período";
+            this.RbPeriodo.UseVisualStyleBackColor = true;
+            this.RbPeriodo.CheckedChanged += new System.EventHandler(this.RbPeriodo_CheckedChanged);
+            // 
             // RbCompetencia
             // 
             this.RbCompetencia.AutoSize = true;
@@ -90,6 +101,7 @@
             this.RbCompetencia.Name = "RbCompetencia";
             this.RbCompetencia.Size = new System.Drawing.Size(87, 17);
             this.RbCompetencia.TabIndex = 0;
+            this.RbCompetencia.TabStop = true;
             this.RbCompetencia.Text = "Competência";
             this.RbCompetencia.UseVisualStyleBackColor = true;
             this.RbCompetencia.CheckedChanged += new System.EventHandler(this.RbCompetencia_CheckedChanged);
@@ -182,17 +194,7 @@
             this.BtnGerar.TabIndex = 8;
             this.BtnGerar.Text = "Gerar";
             this.BtnGerar.UseVisualStyleBackColor = true;
-            // 
-            // RbPeriodo
-            // 
-            this.RbPeriodo.AutoSize = true;
-            this.RbPeriodo.Location = new System.Drawing.Point(99, 19);
-            this.RbPeriodo.Name = "RbPeriodo";
-            this.RbPeriodo.Size = new System.Drawing.Size(63, 17);
-            this.RbPeriodo.TabIndex = 0;
-            this.RbPeriodo.Text = "Período";
-            this.RbPeriodo.UseVisualStyleBackColor = true;
-            this.RbPeriodo.CheckedChanged += new System.EventHandler(this.RbPeriodo_CheckedChanged);
+            this.BtnGerar.Click += new System.EventHandler(this.BtnGerar_Click);
             // 
             // CbMarc
             // 
